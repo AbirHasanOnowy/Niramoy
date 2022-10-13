@@ -14,7 +14,16 @@
         android:theme="@style/Theme.NIramoy"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity"
+            android:name=".PatientProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".EnterTestReportActivity"
+            android:exported="false" />
+        <activity
+            android:name=".EnterPatientActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SplashScreenActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,6 +31,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".CreateAccountActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SignInActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="false" />
     </application>
 
 </manifest>
