@@ -17,13 +17,14 @@
             android:name=".PatientProfileActivity"
             android:exported="false" />
         <activity
-            android:name=".EnterTestReportActivity"
+            android:name=".SplashScreenActivity"
+
             android:exported="false" />
         <activity
             android:name=".EnterPatientActivity"
             android:exported="false" />
         <activity
-            android:name=".SplashScreenActivity"
+            android:name=".EnterTestReportActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

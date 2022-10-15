@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#74B0F3"
     tools:context=".EnterTestReportActivity">
 
     <TextView
@@ -12,36 +12,24 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="26dp"
+        android:layout_marginTop="20dp"
         android:text="Enter Test Result : "
         android:textColor="@color/black"
-        android:textSize="30sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:textSize="30sp" />
 
-    <TextView
-        android:id="@+id/selectTest"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="6dp"
-        android:layout_marginTop="20dp"
-        android:text="!. Select Test"
-        android:textSize="25sp"
-        app:layout_constraintStart_toStartOf="@+id/titleText"
-        app:layout_constraintTop_toBottomOf="@+id/titleText" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout"
+        android:id="@+id/testMenu"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginStart="46dp"
-        android:layout_marginTop="60dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="70dp"
         android:layout_marginEnd="20dp"
-        android:background="@color/white"
-        android:hint="test name"
-        app:layout_constraintStart_toStartOf="@+id/titleText"
-        app:layout_constraintTop_toBottomOf="@+id/titleText">
+        app:helperText="Required*"
+        app:helperTextTextColor="@color/red"
+        android:hint="Select Test"
+        app:startIconDrawable="@drawable/pick">
 
         <AutoCompleteTextView
             android:id="@+id/testSelectDropDownBox"
@@ -49,12 +37,103 @@
             android:layout_height="wrap_content"
             android:background="@color/white"
             android:inputType="none"
-            app:layout_constraintBottom_toTopOf="@+id/textInputLayout"
-            tools:layout_editor_absoluteX="56dp" />
+            />
 
     </com.google.android.material.textfield.TextInputLayout>
 
 
 
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:id="@+id/testPatientIdInputField"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="160dp"
+        android:layout_marginEnd="20dp"
+        android:hint="Patient ID"
+        app:errorEnabled="true"
+        app:errorIconDrawable="@drawable/error"
+        app:counterEnabled="true"
+        app:counterMaxLength="20"
+        app:endIconMode="clear_text"
+        app:helperText="Required*"
+        app:helperTextTextColor="@color/red"
+        app:startIconDrawable="@drawable/ic_baseline_person_18">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/testPatientIdInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text">
+
+        </com.google.android.material.textfield.TextInputEditText>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:id="@+id/testPatientTestResultInputField"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="250dp"
+        android:layout_marginEnd="20dp"
+        android:hint="Test Report Details"
+        app:endIconMode="clear_text"
+        app:helperText="Required*"
+        app:helperTextTextColor="@color/red"
+        app:startIconDrawable="@drawable/ic_baseline_create_1">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/testPatientTestResultInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textMultiLine"
+            android:minLines="6"
+            android:maxLines="6">
+
+        </com.google.android.material.textfield.TextInputEditText>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:id="@+id/testPatientTestSummeryInputField"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="430dp"
+        android:layout_marginEnd="20dp"
+        android:hint="Report Summery"
+        app:counterEnabled="true"
+        app:counterMaxLength="400"
+        app:endIconMode="clear_text"
+        app:startIconDrawable="@drawable/ic_baseline_create_1">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/testPatientTestSummeryInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textMultiLine"
+            android:minLines="4"
+            android:maxLines="4">
+
+        </com.google.android.material.textfield.TextInputEditText>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/testSaveButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="140dp"
+        android:layout_marginTop="590dp"
+        android:padding="10dp"
+        android:text="Save">
+
+    </com.google.android.material.button.MaterialButton>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
