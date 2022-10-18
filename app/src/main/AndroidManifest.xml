@@ -24,7 +24,7 @@
             android:name=".EnterPatientActivity"
             android:exported="false" />
         <activity
-            android:name=".EnterTestReportActivity"
+            android:name=".SignInActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -36,7 +36,7 @@
             android:name=".CreateAccountActivity"
             android:exported="false" />
         <activity
-            android:name=".SignInActivity"
+            android:name=".EnterTestReportActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
