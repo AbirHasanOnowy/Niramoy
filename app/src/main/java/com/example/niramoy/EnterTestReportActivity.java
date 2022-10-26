@@ -22,7 +22,6 @@ public class EnterTestReportActivity extends AppCompatActivity {
     EditText patientID,testReport,reportSummery;
     TextInputLayout layoutPatientID,layoutTestReport,layoutTestMenu;
     String ID,Report,Summery,Test = "";
-    boolean checkInput = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
