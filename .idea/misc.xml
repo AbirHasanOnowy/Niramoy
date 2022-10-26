@@ -6,6 +6,7 @@
         <entry key="..\:/New/Niramoy/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.13" />
         <entry key="..\:/New/Niramoy/app/src/main/res/drawable/et_background1.xml" value="0.13" />
         <entry key="..\:/New/Niramoy/app/src/main/res/drawable/ic_baseline_create_1.xml" value="0.104" />
+        <entry key="..\:/New/Niramoy/app/src/main/res/drawable/ic_baseline_lock_24.xml" value="0.141" />
         <entry key="..\:/New/Niramoy/app/src/main/res/drawable/ic_baseline_person_18.xml" value="0.126" />
         <entry key="..\:/New/Niramoy/app/src/main/res/drawable/ic_launcher_background.xml" value="0.13" />
         <entry key="..\:/New/Niramoy/app/src/main/res/layout/activity_create_account.xml" value="0.22447916666666667" />
@@ -13,7 +14,7 @@
         <entry key="..\:/New/Niramoy/app/src/main/res/layout/activity_enter_test_report.xml" value="0.33" />
         <entry key="..\:/New/Niramoy/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/New/Niramoy/app/src/main/res/layout/activity_patient_profile.xml" value="0.22447916666666667" />
-        <entry key="..\:/New/Niramoy/app/src/main/res/layout/activity_sign_in.xml" value="0.22447916666666667" />
+        <entry key="..\:/New/Niramoy/app/src/main/res/layout/activity_sign_in.xml" value="0.2" />
         <entry key="..\:/New/Niramoy/app/src/main/res/layout/activity_splash_screen.xml" value="0.25" />
         <entry key="..\:/New/Niramoy/app/src/main/res/layout/test_list.xml" value="0.2234375" />
       </map>

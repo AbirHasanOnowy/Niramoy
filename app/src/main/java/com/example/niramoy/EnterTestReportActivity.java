@@ -9,6 +9,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
+import android.widget.EditText;
 
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
@@ -18,10 +19,9 @@ public class EnterTestReportActivity extends AppCompatActivity {
     String[] tests = {"ECG","RA","Glucose level","Blood","etc"};
     AutoCompleteTextView autoCompleteTextView;
     ArrayAdapter<String> arrayAdapterItems;
-    TextInputEditText patientID,testReport,reportSummery;
+    EditText patientID,testReport,reportSummery;
     TextInputLayout layoutPatientID,layoutTestReport,layoutTestMenu;
     String ID,Report,Summery,Test = "";
-    boolean checkInput = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,13 +65,13 @@ public class EnterTestReportActivity extends AppCompatActivity {
                     layoutTestMenu.setError("Select Test");
 
                 } else {
-                    if(patientID.getText()!= null) {
+                    if(patientID.length()!= 0) {
                         ID = patientID.getText().toString();
 
-                        if(testReport.getText()!= null) {
+                        if(testReport.length()!= 0) {
                             Report = testReport.getText().toString();
 
-                            if(reportSummery.getText()!=null) {
+                            if(reportSummery.length()!= 0) {
                                 Summery = reportSummery.getText().toString();
                             } else { Summery = "";}
 
