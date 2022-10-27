@@ -35,8 +35,8 @@ public class SignInActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                if(ePassword.length() != 0) {
-                    if (eEmail.length() != 0) {
+                if(eEmail.length() != 0)  {
+                    if (ePassword.length() != 0){
 
                         iMail = eEmail.getText().toString();
                         iPassword = ePassword.getText().toString();
@@ -48,10 +48,10 @@ public class SignInActivity extends AppCompatActivity {
                             layoutPassword.setError("Enter Correct Password");
                         }
                     } else {
-                        layoutEmail.setError("Enter Valid Email");
+                        layoutPassword.setError("Enter Valid Password");
                     }
                 } else {
-                    layoutPassword.setError("Enter Valid Password");
+                    layoutEmail.setError("Enter Valid Email");
                 }
 
             }
@@ -61,7 +61,6 @@ public class SignInActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(SignInActivity.this,CreateAccountActivity.class));
-                finish();
             }
         });
 
