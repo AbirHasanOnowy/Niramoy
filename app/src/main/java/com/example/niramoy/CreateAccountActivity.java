@@ -15,8 +15,8 @@ import com.google.android.material.textfield.TextInputLayout;
 
 public class CreateAccountActivity extends AppCompatActivity {
 
-    String[] genderList = {"Male","Female","Other"};
-    String[] doctorList = {"Tonmoy","Foysal","Choyon"};
+    String[] genderList = {"Male","Female","Others"};
+    String[] doctorList = {"Patient","Doctor","Receptionist","Nurse"};
     AutoCompleteTextView genderAutoCompleteTextView,doctorAutoCompleteTextView;
     ArrayAdapter<String> genderArrayAdapterItems,doctorArrayAdapterItems;
     EditText eUserName,eEmail,ePassword;
