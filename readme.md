@@ -30,6 +30,9 @@
 ## Entity Relationship Diagram
 ![ER Diagram of Niramoy](https://user-images.githubusercontent.com/70595051/192147159-77dd361e-c706-4d6c-a34b-bbc1159b70c9.png)
 
+## Flowchart
+![Project flowchart](https://user-images.githubusercontent.com/102896787/207408565-c093bd8c-ca16-44d4-a74a-da668601db8d.jpg)
+
 
 ## Workflow
 ![Workflow of Niramoy](https://user-images.githubusercontent.com/70595051/192147231-c7737f62-faaa-4275-b4df-d710e5776917.png)
