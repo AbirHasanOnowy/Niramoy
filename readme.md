@@ -34,5 +34,8 @@
 ![Project flowchart](https://user-images.githubusercontent.com/102896787/207408565-c093bd8c-ca16-44d4-a74a-da668601db8d.jpg)
 
 
+## Schema Diagram
+![Final View (1)](https://user-images.githubusercontent.com/102896787/207495186-dcc09c7d-dd25-4683-a2df-67b4fda7442c.jpg)
+
 ## Workflow
 ![Workflow of Niramoy](https://user-images.githubusercontent.com/70595051/192147231-c7737f62-faaa-4275-b4df-d710e5776917.png)
