@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background"
-    tools:context=".CreateAccountActivity">
+    tools:context=".ReceptionistDataInputActivity">
 
     <ScrollView
         android:layout_width="0dp"
@@ -19,7 +19,7 @@
             android:layout_height="wrap_content">
 
             <ImageView
-                android:id="@+id/logo"
+                android:id="@+id/rdiLogo"
                 android:layout_width="wrap_content"
                 android:layout_height="128dp"
                 android:layout_marginTop="64dp"
@@ -30,22 +30,22 @@
                 tools:layout_editor_absoluteX="0dp" />
 
             <TextView
-                android:id="@+id/appNameTextView"
+                android:id="@+id/rdiAppNameTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:text="Niramoy"
                 android:textColor="#16AABD"
                 android:textSize="50sp"
-                app:layout_constraintBottom_toTopOf="@+id/createAccountTextView"
+                app:layout_constraintBottom_toTopOf="@+id/rdiCreateAccountTextView"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.497"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/logo"
+                app:layout_constraintTop_toBottomOf="@+id/rdiLogo"
                 app:layout_constraintVertical_bias="1.0" />
 
             <TextView
-                android:id="@+id/createAccountTextView"
+                android:id="@+id/rdiCreateAccountTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
@@ -55,32 +55,31 @@
                 android:textSize="16sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/appNameTextView"
+                app:layout_constraintTop_toBottomOf="@id/rdiAppNameTextView"
                 app:layout_constraintVertical_bias="1.0"
                 tools:ignore="MissingConstraints" />
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/caUserNameInputField"
+                android:id="@+id/rdiUserNameInputField"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="24dp"
-                android:layout_marginEnd="20dp"
-                android:hint="User Name"
+                android:layout_marginEnd="24dp"
+                android:hint="Enter Name"
                 app:counterEnabled="true"
                 app:counterMaxLength="20"
                 app:endIconMode="clear_text"
                 app:errorEnabled="true"
                 app:errorIconDrawable="@drawable/error"
                 app:helperText="Required*"
-                app:helperTextTextColor="@color/red"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/createAccountTextView"
+                app:layout_constraintTop_toBottomOf="@+id/rdiCreateAccountTextView"
                 app:startIconDrawable="@drawable/ic_baseline_person_18">
 
                 <EditText
-                    android:id="@+id/caUserNameInput"
+                    android:id="@+id/rdiUserNameInput"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="text">
@@ -91,7 +90,7 @@
 
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/caEmailLayout"
+                android:id="@+id/rdiEmailLayout"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -104,17 +103,16 @@
                 app:errorEnabled="true"
                 app:errorIconDrawable="@drawable/error"
                 app:helperText="Required*"
-                app:helperTextTextColor="@color/red"
                 app:hintEnabled="true"
                 app:hintTextColor="#16AABD"
                 app:iconTint="#16AABD"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/caUserNameInputField"
+                app:layout_constraintTop_toBottomOf="@+id/rdiUserNameInputField"
                 app:startIconDrawable="@drawable/ic_baseline_email_24">
 
                 <EditText
-                    android:id="@+id/caEmailInput"
+                    android:id="@+id/rdiEmailInput"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="text" />
@@ -123,7 +121,7 @@
 
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/caPasswordLayout"
+                android:id="@+id/rdiPasswordLayout"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -134,18 +132,17 @@
                 app:boxStrokeColor="#16AABD"
                 app:errorEnabled="true"
                 app:helperText="Required*"
-                app:helperTextTextColor="@color/red"
                 app:hintEnabled="true"
                 app:hintTextColor="#16AABD"
                 app:iconTint="#16AABD"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/caEmailLayout"
+                app:layout_constraintTop_toBottomOf="@+id/rdiEmailLayout"
                 app:passwordToggleEnabled="true"
                 app:startIconDrawable="@drawable/ic_baseline_lock_24">
 
                 <EditText
-                    android:id="@+id/caPasswordInput"
+                    android:id="@+id/rdiPasswordInput"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textPassword" />
@@ -153,22 +150,21 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/genderMenu"
+                android:id="@+id/rdiGenderMenu"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
+                android:layout_marginStart="24dp"
                 android:layout_marginTop="10dp"
-                android:layout_marginEnd="20dp"
+                android:layout_marginEnd="24dp"
                 android:hint="Select Gender"
                 app:helperText="Required*"
-                app:helperTextTextColor="@color/red"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/caPasswordLayout"
+                app:layout_constraintTop_toBottomOf="@+id/rdiPasswordLayout"
                 app:startIconDrawable="@drawable/pick">
 
                 <AutoCompleteTextView
-                    android:id="@+id/genderSelectDropDownBox"
+                    android:id="@+id/rdiGenderSelectDropDownBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@color/white"
@@ -176,38 +172,34 @@
 
             </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/doctorMenu"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/rdiPickBirthDateButton"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="24dp"
                 android:layout_marginTop="10dp"
-                android:layout_marginEnd="20dp"
-                android:hint="Select Position"
-                app:helperText="Required*"
-                app:helperTextTextColor="@color/red"
+                android:layout_marginEnd="24dp"
+                android:layout_gravity="start"
+                android:text="  Select Birth Date"
+                app:iconTint="#687173"
+                android:textColor="#687173"
+                android:textAlignment="textStart"
+                android:textAllCaps="false"
+                android:textSize="18sp"
+                app:icon="@drawable/ic_baseline_birth_date_24"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/genderMenu"
-                app:startIconDrawable="@drawable/pick">
-
-                <AutoCompleteTextView
-                    android:id="@+id/doctorSelectDropDownBox"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@color/white"
-                    android:inputType="none" />
-
-            </com.google.android.material.textfield.TextInputLayout>
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/rdiGenderMenu" />
 
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/confirmButton"
+                android:id="@+id/rdiConfirmButton"
                 style="@style/Widget.MaterialComponents.Button.Icon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
-                android:layout_marginBottom="24dp"
+                android:layout_marginBottom="40dp"
                 android:backgroundTint="#16AABD"
                 android:text="Confirm"
                 android:textColor="@color/white"
@@ -216,9 +208,8 @@
                 app:iconTint="@color/white"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/doctorMenu" />
+                app:layout_constraintTop_toBottomOf="@+id/rdiPickBirthDateButton" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

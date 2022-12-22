@@ -11,35 +11,36 @@ import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
 
 import com.google.android.material.button.MaterialButton;
+import com.google.android.material.datepicker.MaterialDatePicker;
 import com.google.android.material.textfield.TextInputLayout;
 
-public class CreateAccountActivity extends AppCompatActivity {
+import java.util.Objects;
+
+public class DirectorDataInputActivity extends AppCompatActivity {
 
     String[] genderList = {"Male","Female","Others"};
-    String[] doctorList = {"Patient","Doctor","Receptionist","Nurse"};
     AutoCompleteTextView genderAutoCompleteTextView,doctorAutoCompleteTextView;
     ArrayAdapter<String> genderArrayAdapterItems,doctorArrayAdapterItems;
     EditText eUserName,eEmail,ePassword;
     TextInputLayout layoutUserName,layoutEmail,layoutPassword,layoutGender,layoutDoctor;
-    MaterialButton confirmButton;
-    String name,email,password,Gender = "",Doctor = "";
+    MaterialButton confirmButton,datePickerButton;
+    String Gender = "",ShowDate="",Birthdate = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_create_account);
+        setContentView(R.layout.activity_director_data_input);
 
-        genderAutoCompleteTextView = findViewById(R.id.genderSelectDropDownBox);
-        doctorAutoCompleteTextView = findViewById(R.id.doctorSelectDropDownBox);
-        eUserName = findViewById(R.id.caUserNameInput);
-        eEmail = findViewById(R.id.caEmailInput);
-        ePassword = findViewById(R.id.caPasswordInput);
-        layoutUserName = findViewById(R.id.caUserNameInputField);
-        layoutEmail = findViewById(R.id.caEmailLayout);
-        layoutPassword = findViewById(R.id.caPasswordLayout);
-        layoutGender = findViewById(R.id.genderMenu);
-        layoutDoctor = findViewById(R.id.doctorMenu);
-        confirmButton =findViewById(R.id.confirmButton);
+        genderAutoCompleteTextView = findViewById(R.id.diGenderSelectDropDownBox);
+        eUserName = findViewById(R.id.diUserNameInput);
+        eEmail = findViewById(R.id.diEmailInput);
+        ePassword = findViewById(R.id.diPasswordInput);
+        datePickerButton = findViewById(R.id.diPickBirthDateButton);
+        layoutUserName = findViewById(R.id.diUserNameInputField);
+        layoutEmail = findViewById(R.id.diEmailLayout);
+        layoutPassword = findViewById(R.id.diPasswordLayout);
+        layoutGender = findViewById(R.id.diGenderMenu);
+        confirmButton =findViewById(R.id.diConfirmButton);
 
         genderArrayAdapterItems = new ArrayAdapter<String>(this,R.layout.gender_list,genderList);
         genderAutoCompleteTextView.setAdapter(genderArrayAdapterItems);
@@ -52,16 +53,24 @@ public class CreateAccountActivity extends AppCompatActivity {
             }
         });
 
-        doctorArrayAdapterItems = new ArrayAdapter<String>(this,R.layout.doctor_list,doctorList);
-        doctorAutoCompleteTextView.setAdapter(doctorArrayAdapterItems);
+        MaterialDatePicker.Builder<Long> materialDateBuilder = MaterialDatePicker.Builder.datePicker();
+        materialDateBuilder.setTitleText("Select Birth Date");
+        final MaterialDatePicker<Long> materialDatePicker = materialDateBuilder.build();
 
-        doctorAutoCompleteTextView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        datePickerButton.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        materialDatePicker.show(getSupportFragmentManager(), "MATERIAL_DATE_PICKER");
+                    }
+                });
 
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Doctor = parent.getItemAtPosition(position).toString();
-            }
-        });
+        materialDatePicker.addOnPositiveButtonClickListener(
+                selection -> {
+                    Birthdate = materialDatePicker.getHeaderText();
+                    ShowDate = "  "+Birthdate;
+                    datePickerButton.setText(ShowDate);
+                });
 
         confirmButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -69,12 +78,8 @@ public class CreateAccountActivity extends AppCompatActivity {
                 if(eUserName.length() != 0) {
                     if(eEmail.length() != 0) {
                         if(ePassword.length() != 0) {
-                            if(Gender != "") {
-                                if(Doctor != "") {
-                                    startActivity(new Intent(CreateAccountActivity.this,SignInActivity.class));
-                                } else {
-                                    layoutDoctor.setError("Select Doctor");
-                                }
+                            if(!Objects.equals(Gender, "")) {
+                                startActivity(new Intent(DirectorDataInputActivity.this,SignInActivity.class));
                             } else {
                                 layoutGender.setError("Select Gender");
                             }
