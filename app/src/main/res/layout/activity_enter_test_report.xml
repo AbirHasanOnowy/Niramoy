@@ -160,7 +160,7 @@
         android:layout_centerHorizontal="true"
         android:layout_below="@id/testPatientTestSummeryInputField"
         android:layout_marginTop="20dp"
-        android:padding="10dp"
+        android:padding="12dp"
         android:text="Save">
 
     </com.google.android.material.button.MaterialButton>
