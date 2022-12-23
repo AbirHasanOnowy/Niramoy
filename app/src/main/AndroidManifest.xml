@@ -11,31 +11,31 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.NIramoy"
+        android:theme="@style/Theme.Niramoy"
         tools:targetApi="31">
         <activity
-            android:name=".ReceptionistDataInputActivity"
+            android:name="com.example.niramoy.SignUpReceiptionist"
+            android:theme="@style/Theme.NoActionBar"
             android:exported="false" />
         <activity
-            android:name=".NurseDataInputActivity"
+            android:name="com.example.niramoy.SignUpNurse"
+            android:theme="@style/Theme.NoActionBar"
             android:exported="false" />
         <activity
-            android:name=".DoctorDataInputActivity"
+            android:name="com.example.niramoy.SignUpDoctor"
+            android:theme="@style/Theme.NoActionBar"
             android:exported="false" />
         <activity
-            android:name=".Hospital_Id_input_Activity"
+            android:name="com.example.niramoy.SignUp"
+            android:theme="@style/Theme.NoActionBar"
             android:exported="false" />
         <activity
-            android:name=".PatientProfileActivity"
+            android:name="com.example.niramoy.SignInActivity"
+            android:theme="@style/Theme.NoActionBar"
             android:exported="false" />
         <activity
-            android:name=".SignInActivity"
-            android:exported="false" />
-        <activity
-            android:name=".EnterPatientActivity"
-            android:exported="false" />
-        <activity
-            android:name=".SplashScreenActivity"
+            android:name="com.example.niramoy.SplashScreenActivity"
+            android:theme="@style/Theme.NoActionBar"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -44,13 +44,14 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".DirectorDataInputActivity"
+            android:name="com.example.niramoy.SignUpDirector"
+            android:theme="@style/Theme.NoActionBar"
             android:exported="false" />
         <activity
-            android:name=".EnterTestReportActivity"
+            android:name="com.example.niramoy.EnterTestReportActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name="com.example.niramoy.MainActivity"
             android:exported="false" />
     </application>
 

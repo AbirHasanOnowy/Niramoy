@@ -16,7 +16,7 @@ import com.google.android.material.textfield.TextInputLayout;
 
 import java.util.Objects;
 
-public class DirectorDataInputActivity extends AppCompatActivity {
+public class SignUpDirector extends AppCompatActivity {
 
     String[] genderList = {"Male","Female","Others"};
     AutoCompleteTextView genderAutoCompleteTextView,doctorAutoCompleteTextView;
@@ -29,7 +29,7 @@ public class DirectorDataInputActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_director_data_input);
+        setContentView(R.layout.activity_signup_director);
 
         genderAutoCompleteTextView = findViewById(R.id.diGenderSelectDropDownBox);
         eUserName = findViewById(R.id.diUserNameInput);
@@ -79,7 +79,7 @@ public class DirectorDataInputActivity extends AppCompatActivity {
                     if(eEmail.length() != 0) {
                         if(ePassword.length() != 0) {
                             if(!Objects.equals(Gender, "")) {
-                                startActivity(new Intent(DirectorDataInputActivity.this,SignInActivity.class));
+                                startActivity(new Intent(SignUpDirector.this,SignInActivity.class));
                             } else {
                                 layoutGender.setError("Select Gender");
                             }

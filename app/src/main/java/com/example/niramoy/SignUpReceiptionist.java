@@ -10,42 +10,38 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
 
+
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.datepicker.MaterialDatePicker;
 import com.google.android.material.textfield.TextInputLayout;
 
 import java.util.Objects;
 
-public class DoctorDataInputActivity extends AppCompatActivity {
+public class SignUpReceiptionist extends AppCompatActivity {
 
     String[] genderList = {"Male","Female","Others"};
     AutoCompleteTextView genderAutoCompleteTextView;
     ArrayAdapter<String> genderArrayAdapterItems;
-    EditText eName,eEmail,ePassword,eDepartment,eEducation;
-    TextInputLayout layoutUserName,layoutEmail,layoutPassword,layoutGender,layoutDepartment,layoutEducation;
+    EditText eName,eEmail,ePassword;
+    TextInputLayout layoutUserName,layoutEmail,layoutPassword,layoutGender;
     MaterialButton confirmButton,datePickerButton;
     String Gender = "",ShowDate="",Birthdate = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_doctor_data_input);
+        setContentView(R.layout.activity_signup_receptionist);
 
-
-        genderAutoCompleteTextView = findViewById(R.id.ddiGenderSelectDropDownBox);
-        eName = findViewById(R.id.ddiUserNameInput);
-        eEmail = findViewById(R.id.ddiEmailInput);
-        ePassword = findViewById(R.id.ddiPasswordInput);
-        eDepartment = findViewById(R.id.ddiDepartmentInput);
-        eEducation = findViewById(R.id.ddiEducationInput);
-        datePickerButton = findViewById(R.id.ddiPickBirthDateButton);
-        layoutUserName = findViewById(R.id.ddiUserNameInputField);
-        layoutEmail = findViewById(R.id.ddiEmailLayout);
-        layoutPassword = findViewById(R.id.ddiPasswordLayout);
-        layoutGender = findViewById(R.id.ddiGenderMenu);
-        layoutDepartment = findViewById(R.id.ddiDepartmentLayout);
-        layoutEducation = findViewById(R.id.ddiEducationLayout);
-        confirmButton =findViewById(R.id.ddiConfirmButton);
+        genderAutoCompleteTextView = findViewById(R.id.rdiGenderSelectDropDownBox);
+        eName = findViewById(R.id.rdiUserNameInput);
+        eEmail = findViewById(R.id.rdiEmailInput);
+        ePassword = findViewById(R.id.rdiPasswordInput);
+        datePickerButton = findViewById(R.id.rdiPickBirthDateButton);
+        layoutUserName = findViewById(R.id.rdiUserNameInputField);
+        layoutEmail = findViewById(R.id.rdiEmailLayout);
+        layoutPassword = findViewById(R.id.rdiPasswordLayout);
+        layoutGender = findViewById(R.id.rdiGenderMenu);
+        confirmButton =findViewById(R.id.rdiConfirmButton);
 
         genderArrayAdapterItems = new ArrayAdapter<String>(this,R.layout.gender_list,genderList);
         genderAutoCompleteTextView.setAdapter(genderArrayAdapterItems);
@@ -84,12 +80,8 @@ public class DoctorDataInputActivity extends AppCompatActivity {
                     if(eEmail.length() != 0) {
                         if(ePassword.length() != 0) {
                             if(!Objects.equals(Gender, "")) {
-                                if(eDepartment.length() != 0) {
-                                    startActivity(new Intent(DoctorDataInputActivity.this,SignInActivity.class));
-                                } else {
-                                    layoutDepartment.setError("Enter Department");
-                                }
-                            } else {
+                                startActivity(new Intent(SignUpReceiptionist.this,SignInActivity.class));
+                             } else {
                                 layoutGender.setError("Select Gender");
                             }
                         } else {
@@ -103,5 +95,6 @@ public class DoctorDataInputActivity extends AppCompatActivity {
                 }
             }
         });
+
     }
 }

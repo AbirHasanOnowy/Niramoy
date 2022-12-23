@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
-    tools:context=".DirectorDataInputActivity">
+    android:background="@color/white"
+    tools:context=".SignUpNurse">
 
     <ScrollView
         android:layout_width="0dp"
@@ -19,7 +19,7 @@
             android:layout_height="wrap_content">
 
             <ImageView
-                android:id="@+id/diLogo"
+                android:id="@+id/ndiLogo"
                 android:layout_width="wrap_content"
                 android:layout_height="128dp"
                 android:layout_marginTop="64dp"
@@ -30,57 +30,57 @@
                 tools:layout_editor_absoluteX="0dp" />
 
             <TextView
-                android:id="@+id/diAppNameTextView"
+                android:id="@+id/ndiAppNameTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:text="Niramoy"
-                android:textColor="#16AABD"
+                android:textColor="@color/colorPrimary"
                 android:textSize="50sp"
-                app:layout_constraintBottom_toTopOf="@+id/diCreateAccountTextView"
+                app:layout_constraintBottom_toTopOf="@+id/ndiCreateAccountTextView"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.497"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/diLogo"
+                app:layout_constraintTop_toBottomOf="@+id/ndiLogo"
                 app:layout_constraintVertical_bias="1.0" />
 
             <TextView
-                android:id="@+id/diCreateAccountTextView"
+                android:id="@+id/ndiCreateAccountTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="41dp"
                 android:text="Sign Up"
-                android:textColor="#16AABD"
+                android:textColor="@color/colorPrimary"
                 android:textSize="16sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/diAppNameTextView"
+                app:layout_constraintTop_toBottomOf="@id/ndiAppNameTextView"
                 app:layout_constraintVertical_bias="1.0"
                 tools:ignore="MissingConstraints" />
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/diUserNameInputField"
+                android:id="@+id/ndiUserNameInputField"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="24dp"
                 android:layout_marginEnd="24dp"
-                android:hint="User Name"
+                android:hint="Enter Name"
                 app:counterEnabled="true"
                 app:counterMaxLength="20"
                 app:endIconMode="clear_text"
                 app:errorEnabled="true"
                 app:errorIconDrawable="@drawable/error"
                 app:helperText="Required*"
-                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/diCreateAccountTextView"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ndiCreateAccountTextView"
                 app:startIconDrawable="@drawable/ic_baseline_person_18">
 
                 <EditText
-                    android:id="@+id/diUserNameInput"
+                    android:id="@+id/ndiUserNameInput"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="text">
@@ -91,7 +91,7 @@
 
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/diEmailLayout"
+                android:id="@+id/ndiEmailLayout"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -99,21 +99,21 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="24dp"
                 android:hint="Enter Email"
-                app:boxStrokeColor="#16AABD"
+                app:boxStrokeColor="@color/colorPrimary"
                 app:endIconMode="clear_text"
                 app:errorEnabled="true"
                 app:errorIconDrawable="@drawable/error"
                 app:helperText="Required*"
                 app:hintEnabled="true"
-                app:hintTextColor="#16AABD"
-                app:iconTint="#16AABD"
+                app:hintTextColor="@color/colorPrimary"
+                app:iconTint="@color/colorPrimary"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/diUserNameInputField"
+                app:layout_constraintTop_toBottomOf="@+id/ndiUserNameInputField"
                 app:startIconDrawable="@drawable/ic_baseline_email_24">
 
                 <EditText
-                    android:id="@+id/diEmailInput"
+                    android:id="@+id/ndiEmailInput"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="text" />
@@ -122,7 +122,7 @@
 
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/diPasswordLayout"
+                android:id="@+id/ndiPasswordLayout"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -130,20 +130,20 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="24dp"
                 android:hint="Enter Password"
-                app:boxStrokeColor="#16AABD"
+                app:boxStrokeColor="@color/colorPrimary"
                 app:errorEnabled="true"
                 app:helperText="Required*"
                 app:hintEnabled="true"
-                app:hintTextColor="#16AABD"
-                app:iconTint="#16AABD"
+                app:hintTextColor="@color/colorPrimary"
+                app:iconTint="@color/colorPrimary"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/diEmailLayout"
+                app:layout_constraintTop_toBottomOf="@+id/ndiEmailLayout"
                 app:passwordToggleEnabled="true"
                 app:startIconDrawable="@drawable/ic_baseline_lock_24">
 
                 <EditText
-                    android:id="@+id/diPasswordInput"
+                    android:id="@+id/ndiPasswordInput"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textPassword" />
@@ -151,7 +151,7 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/diGenderMenu"
+                android:id="@+id/ndiGenderMenu"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -160,13 +160,13 @@
                 android:layout_marginEnd="24dp"
                 android:hint="Select Gender"
                 app:helperText="Required*"
-                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/diPasswordLayout"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ndiEducationLayout"
                 app:startIconDrawable="@drawable/pick">
 
                 <AutoCompleteTextView
-                    android:id="@+id/diGenderSelectDropDownBox"
+                    android:id="@+id/ndiGenderSelectDropDownBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@color/white"
@@ -174,9 +174,55 @@
 
             </com.google.android.material.textfield.TextInputLayout>
 
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/ndiDepartmentLayout"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="24dp"
+                android:hint="Enter Department/Unit"
+                app:helperText="Required*"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ndiPasswordLayout"
+                app:startIconDrawable="@drawable/ic_baseline_class_24">
+
+                <EditText
+                    android:id="@+id/ndiDepartmentInput"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textAutoCorrect" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/ndiEducationLayout"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="24dp"
+                android:hint="Enter Educational Details"
+                app:helperText="Required*"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ndiDepartmentLayout"
+                app:startIconDrawable="@drawable/ic_baseline_school_24">
+
+                <EditText
+                    android:id="@+id/ndiEducationInput"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textMultiLine"
+                    android:maxLines="4"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/diPickBirthDateButton"
+                android:id="@+id/ndiPickBirthDateButton"
                 style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
@@ -193,17 +239,17 @@
                 app:icon="@drawable/ic_baseline_birth_date_24"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/diGenderMenu" />
+                app:layout_constraintTop_toBottomOf="@+id/ndiGenderMenu" />
 
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/diConfirmButton"
+                android:id="@+id/ndiConfirmButton"
                 style="@style/Widget.MaterialComponents.Button.Icon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
                 android:layout_marginBottom="40dp"
-                android:backgroundTint="#16AABD"
+                android:backgroundTint="@color/colorPrimary"
                 android:text="Confirm"
                 android:textColor="@color/white"
                 app:icon="@drawable/ic_baseline_done_all_24"
@@ -211,9 +257,8 @@
                 app:iconTint="@color/white"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/diPickBirthDateButton" />
+                app:layout_constraintTop_toBottomOf="@+id/ndiPickBirthDateButton" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

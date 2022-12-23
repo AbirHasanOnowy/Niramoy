@@ -16,31 +16,35 @@ import com.google.android.material.textfield.TextInputLayout;
 
 import java.util.Objects;
 
-public class ReceptionistDataInputActivity extends AppCompatActivity {
+public class SignUpNurse extends AppCompatActivity {
 
     String[] genderList = {"Male","Female","Others"};
     AutoCompleteTextView genderAutoCompleteTextView;
     ArrayAdapter<String> genderArrayAdapterItems;
-    EditText eName,eEmail,ePassword;
-    TextInputLayout layoutUserName,layoutEmail,layoutPassword,layoutGender;
+    EditText eName,eEmail,ePassword,eDepartment,eEducation;
+    TextInputLayout layoutUserName,layoutEmail,layoutPassword,layoutGender,layoutDepartment,layoutEducation;
     MaterialButton confirmButton,datePickerButton;
     String Gender = "",ShowDate="",Birthdate = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_receptionist_data_input);
+        setContentView(R.layout.activity_signup_nurse);
 
-        genderAutoCompleteTextView = findViewById(R.id.rdiGenderSelectDropDownBox);
-        eName = findViewById(R.id.rdiUserNameInput);
-        eEmail = findViewById(R.id.rdiEmailInput);
-        ePassword = findViewById(R.id.rdiPasswordInput);
-        datePickerButton = findViewById(R.id.rdiPickBirthDateButton);
-        layoutUserName = findViewById(R.id.rdiUserNameInputField);
-        layoutEmail = findViewById(R.id.rdiEmailLayout);
-        layoutPassword = findViewById(R.id.rdiPasswordLayout);
-        layoutGender = findViewById(R.id.rdiGenderMenu);
-        confirmButton =findViewById(R.id.rdiConfirmButton);
+        genderAutoCompleteTextView = findViewById(R.id.ndiGenderSelectDropDownBox);
+        eName = findViewById(R.id.ndiUserNameInput);
+        eEmail = findViewById(R.id.ndiEmailInput);
+        ePassword = findViewById(R.id.ndiPasswordInput);
+        eDepartment = findViewById(R.id.ndiDepartmentInput);
+        eEducation = findViewById(R.id.ndiEducationInput);
+        datePickerButton = findViewById(R.id.ndiPickBirthDateButton);
+        layoutUserName = findViewById(R.id.ndiUserNameInputField);
+        layoutEmail = findViewById(R.id.ndiEmailLayout);
+        layoutPassword = findViewById(R.id.ndiPasswordLayout);
+        layoutGender = findViewById(R.id.ndiGenderMenu);
+        layoutDepartment = findViewById(R.id.ndiDepartmentLayout);
+        layoutEducation = findViewById(R.id.ndiEducationLayout);
+        confirmButton =findViewById(R.id.ndiConfirmButton);
 
         genderArrayAdapterItems = new ArrayAdapter<String>(this,R.layout.gender_list,genderList);
         genderAutoCompleteTextView.setAdapter(genderArrayAdapterItems);
@@ -79,8 +83,12 @@ public class ReceptionistDataInputActivity extends AppCompatActivity {
                     if(eEmail.length() != 0) {
                         if(ePassword.length() != 0) {
                             if(!Objects.equals(Gender, "")) {
-                                startActivity(new Intent(ReceptionistDataInputActivity.this,SignInActivity.class));
-                             } else {
+                                if(eDepartment.length() != 0) {
+                                    startActivity(new Intent(SignUpNurse.this,SignInActivity.class));
+                                } else {
+                                    layoutDepartment.setError("Enter Department");
+                                }
+                            } else {
                                 layoutGender.setError("Select Gender");
                             }
                         } else {
@@ -94,6 +102,5 @@ public class ReceptionistDataInputActivity extends AppCompatActivity {
                 }
             }
         });
-
     }
 }
