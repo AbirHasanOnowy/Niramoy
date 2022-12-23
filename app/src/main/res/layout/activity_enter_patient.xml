@@ -14,15 +14,17 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+
             <TextView
+                android:id="@+id/enterPatientTV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="20dp"
                 android:text="Enter Patient : "
-                android:id="@+id/enterPatientTV"
                 android:textColor="@color/black"
                 android:textSize="24sp" />
+
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/patientId"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -45,13 +47,14 @@
                 app:startIconDrawable="@drawable/ic_baseline_person_18"
                 app:startIconTint="@color/black">
 
-            <EditText
-                android:id="@+id/PatientIdET"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="text"
-                android:textColor="@color/black"/>
+                <EditText
+                    android:id="@+id/PatientIdET"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:textColor="@color/black" />
             </com.google.android.material.textfield.TextInputLayout>
+
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/patientName"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -149,10 +152,71 @@
                 </com.google.android.material.textfield.TextInputLayout>
             </LinearLayout>
 
+            <TextView
+                android:id="@+id/pateintImageHeading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/ageGenLL"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="20dp"
+                android:text="Upload Patient Image"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
 
+            <RelativeLayout
+                android:id="@+id/patientImageRL"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/pateintImageHeading"
+                android:layout_centerHorizontal="true">
 
+                <ImageView
+                    android:id="@+id/enterPatientImageIV"
+                    android:layout_width="128dp"
+                    android:layout_height="128dp"
+                    android:layout_marginTop="10dp"
+                    android:backgroundTint="@color/black"
+                    android:src="@drawable/ic_baseline_image_24" />
 
+                <ImageView
+                    android:id="@+id/uploadPPButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/enterPatientImageIV"
+                    android:layout_marginLeft="-30dp"
+                    android:layout_marginTop="-30dp"
+                    android:layout_toRightOf="@id/enterPatientImageIV"
+                    android:src="@drawable/ic_baseline_camera_alt_24" />
+            </RelativeLayout>
 
+            <TextView
+                android:id="@+id/requiredText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/patientImageRL"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="20dp"
+                android:text="Required*"
+                android:textColor="@color/red"
+                android:textSize="16sp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/testSaveButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/requiredText"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="20dp"
+                android:padding="10dp"
+                android:text="Save">
+
+            </com.google.android.material.button.MaterialButton>
         </RelativeLayout>
     </ScrollView>
 </RelativeLayout>
