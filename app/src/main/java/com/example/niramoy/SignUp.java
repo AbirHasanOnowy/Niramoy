@@ -13,7 +13,7 @@ import com.google.android.material.button.MaterialButton;
 
 import java.util.Objects;
 
-public class Hospital_Id_input_Activity extends AppCompatActivity {
+public class SignUp extends AppCompatActivity {
 
     MaterialButton nextButton;
     String[] positionList = {"Director","Doctor","Receptionist","Nurse"};
@@ -24,7 +24,7 @@ public class Hospital_Id_input_Activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_hospital_id_input);
+        setContentView(R.layout.activity_signup);
 
         positionAutoCompleteTextView = findViewById(R.id.hidPositionSelectDropDownBox);
         nextButton=findViewById(R.id.hidNextButton);
@@ -43,13 +43,13 @@ public class Hospital_Id_input_Activity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(Objects.equals(Position, "Director")){
-                    startActivity(new Intent(Hospital_Id_input_Activity.this, DirectorDataInputActivity.class));
+                    startActivity(new Intent(SignUp.this, SignUpDirector.class));
                 } else if(Objects.equals(Position, "Doctor")){
-                    startActivity(new Intent(Hospital_Id_input_Activity.this, DoctorDataInputActivity.class));
+                    startActivity(new Intent(SignUp.this, SignUpDoctor.class));
                 }else if(Objects.equals(Position, "Receptionist")){
-                    startActivity(new Intent(Hospital_Id_input_Activity.this, ReceptionistDataInputActivity.class));
+                    startActivity(new Intent(SignUp.this, SignUpReceiptionist.class));
                 } else if(Objects.equals(Position, "Nurse")){
-                    startActivity(new Intent(Hospital_Id_input_Activity.this, NurseDataInputActivity.class));
+                    startActivity(new Intent(SignUp.this, SignUpNurse.class));
                 }
             }
         });

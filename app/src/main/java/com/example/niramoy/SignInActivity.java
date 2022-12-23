@@ -60,7 +60,7 @@ public class SignInActivity extends AppCompatActivity {
         createId.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(SignInActivity.this,Hospital_Id_input_Activity.class));
+                startActivity(new Intent(SignInActivity.this, SignUp.class));
             }
         });
 

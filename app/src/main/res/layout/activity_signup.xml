@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
-    tools:context=".Hospital_Id_input_Activity">
+    android:background="@color/white"
+    tools:context=".SignUp">
 
     <ImageView
         android:id="@+id/hidLogo"
@@ -24,7 +24,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="Niramoy"
-        android:textColor="#16AABD"
+        android:textColor="@color/colorPrimary"
         android:textSize="50sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
@@ -39,7 +39,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginBottom="41dp"
         android:text="Sign Up"
-        android:textColor="#16AABD"
+        android:textColor="@color/colorPrimary"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -107,7 +107,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:layout_marginBottom="40dp"
-        android:backgroundTint="#16AABD"
+        android:backgroundTint="@color/colorPrimary"
         android:text="Next"
         android:textColor="@color/white"
         app:icon="@drawable/ic_baseline_chevron_right_24"
