@@ -14,29 +14,35 @@
         android:theme="@style/Theme.Niramoy"
         tools:targetApi="31">
         <activity
-            android:name="com.example.niramoy.SignUpReceiptionist"
-            android:theme="@style/Theme.NoActionBar"
+            android:name=".EnterPrescriptionActivity"
             android:exported="false" />
         <activity
-            android:name="com.example.niramoy.SignUpNurse"
-            android:theme="@style/Theme.NoActionBar"
+            android:name=".EnterPatientActivity"
             android:exported="false" />
         <activity
-            android:name="com.example.niramoy.SignUpDoctor"
-            android:theme="@style/Theme.NoActionBar"
-            android:exported="false" />
+            android:name=".SignUpReceiptionist"
+            android:exported="false"
+            android:theme="@style/Theme.NoActionBar" />
         <activity
-            android:name="com.example.niramoy.SignUp"
-            android:theme="@style/Theme.NoActionBar"
-            android:exported="false" />
+            android:name=".SignUpNurse"
+            android:exported="false"
+            android:theme="@style/Theme.NoActionBar" />
         <activity
-            android:name="com.example.niramoy.SignInActivity"
-            android:theme="@style/Theme.NoActionBar"
-            android:exported="false" />
+            android:name=".SignUpDoctor"
+            android:exported="false"
+            android:theme="@style/Theme.NoActionBar" />
         <activity
-            android:name="com.example.niramoy.SplashScreenActivity"
-            android:theme="@style/Theme.NoActionBar"
-            android:exported="true">
+            android:name=".SignUp"
+            android:exported="false"
+            android:theme="@style/Theme.NoActionBar" />
+        <activity
+            android:name=".SignInActivity"
+            android:exported="false"
+            android:theme="@style/Theme.NoActionBar" />
+        <activity
+            android:name=".SplashScreenActivity"
+            android:exported="true"
+            android:theme="@style/Theme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -44,14 +50,14 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.example.niramoy.SignUpDirector"
-            android:theme="@style/Theme.NoActionBar"
+            android:name=".SignUpDirector"
+            android:exported="false"
+            android:theme="@style/Theme.NoActionBar" />
+        <activity
+            android:name=".EnterTestReportActivity"
             android:exported="false" />
         <activity
-            android:name="com.example.niramoy.EnterTestReportActivity"
-            android:exported="false" />
-        <activity
-            android:name="com.example.niramoy.MainActivity"
+            android:name=".MainActivity"
             android:exported="false" />
     </application>
 

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context="com.example.niramoy.MainActivity">
     <ScrollView
         android:layout_width="0dp"
@@ -11,16 +12,6 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         tools:ignore="MissingConstraints">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-
-
-
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -33,6 +24,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginRight="16dp"
+        android:backgroundTint="@color/colorPrimary"
         android:layout_marginBottom="16dp"
         tools:ignore="MissingConstraints" />
 
@@ -44,6 +36,8 @@
         android:clickable="true"
         android:focusable="true"
         android:visibility="invisible"
+        app:fabSize="mini"
+        android:backgroundTint="@color/colorPrimary"
         app:layout_constraintBottom_toTopOf="@+id/addButton"
         app:layout_constraintEnd_toEndOf="@+id/addButton"
         app:srcCompat="@drawable/test1" />
@@ -55,11 +49,26 @@
         android:layout_marginBottom="8dp"
         android:clickable="true"
         android:focusable="true"
+        android:backgroundTint="@color/colorPrimary"
         android:visibility="invisible"
-        app:fabSize="normal"
+        app:fabSize="mini"
         app:layout_constraintBottom_toTopOf="@+id/addTestButton"
         app:layout_constraintEnd_toEndOf="@+id/addTestButton"
         app:srcCompat="@drawable/ic_baseline_person_add_alt_1_24" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/addPrescriptionButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:backgroundTint="@color/colorPrimary"
+        android:clickable="true"
+        android:focusable="true"
+        android:visibility="invisible"
+        app:fabSize="mini"
+        app:layout_constraintBottom_toTopOf="@+id/addPatientButton"
+        app:layout_constraintEnd_toEndOf="@+id/addPatientButton"
+        app:srcCompat="@drawable/ic_baseline_notes_white" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

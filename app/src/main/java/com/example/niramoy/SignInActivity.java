@@ -60,7 +60,9 @@ public class SignInActivity extends AppCompatActivity {
         createId.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(SignInActivity.this, SignUp.class));
+                //startActivity(new Intent(SignInActivity.this, SignUp.class));
+                startActivity(new Intent(SignInActivity.this,MainActivity.class));
+
             }
         });
 
