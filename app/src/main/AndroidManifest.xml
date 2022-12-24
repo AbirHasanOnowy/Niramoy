@@ -14,29 +14,56 @@
         android:theme="@style/Theme.Niramoy"
         tools:targetApi="31">
         <activity
-            android:name="com.example.niramoy.SignUpReceiptionist"
+            android:name=".AdminDirectorListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AddHospitalActivityAdmin"
+            android:exported="false" />
+        <activity
+            android:name=".AdminMainActivity"
+            android:exported="false"
+            android:theme="@style/Theme.NoActionBar" />
+        <activity
+            android:name=".NurseMainActivity"
+            android:exported="false"
+            android:theme="@style/Theme.NoActionBar" />
+        <activity
+            android:name=".DirectorShowDetailsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DirectorMainActivity"
             android:theme="@style/Theme.NoActionBar"
             android:exported="false" />
         <activity
-            android:name="com.example.niramoy.SignUpNurse"
-            android:theme="@style/Theme.NoActionBar"
+            android:name=".EnterPrescriptionActivity"
             android:exported="false" />
         <activity
-            android:name="com.example.niramoy.SignUpDoctor"
-            android:theme="@style/Theme.NoActionBar"
+            android:name=".EnterPatientActivity"
             android:exported="false" />
         <activity
-            android:name="com.example.niramoy.SignUp"
-            android:theme="@style/Theme.NoActionBar"
-            android:exported="false" />
+            android:name=".SignUpReceptionistActivity"
+            android:exported="false"
+            android:theme="@style/Theme.NoActionBar" />
         <activity
-            android:name="com.example.niramoy.SignInActivity"
-            android:theme="@style/Theme.NoActionBar"
-            android:exported="false" />
+            android:name=".SignUpNurseActivity"
+            android:exported="false"
+            android:theme="@style/Theme.NoActionBar" />
         <activity
-            android:name="com.example.niramoy.SplashScreenActivity"
-            android:theme="@style/Theme.NoActionBar"
-            android:exported="true">
+            android:name=".SignUpDoctorActivity"
+            android:exported="false"
+            android:theme="@style/Theme.NoActionBar" />
+        <activity
+            android:name=".SignUpActivity"
+            android:exported="false"
+            android:theme="@style/Theme.NoActionBar" />
+        <activity
+            android:name=".SignInActivity"
+            android:exported="false"
+            android:theme="@style/Theme.NoActionBar" />
+        <activity
+            android:name=".SplashScreenActivity"
+            android:exported="true"
+            android:theme="@style/Theme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -44,15 +71,16 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.example.niramoy.SignUpDirector"
-            android:theme="@style/Theme.NoActionBar"
+            android:name=".SignUpDirectorActivity"
+            android:exported="false"
+            android:theme="@style/Theme.NoActionBar" />
+        <activity
+            android:name=".EnterTestReportActivity"
             android:exported="false" />
         <activity
-            android:name="com.example.niramoy.EnterTestReportActivity"
-            android:exported="false" />
-        <activity
-            android:name="com.example.niramoy.MainActivity"
-            android:exported="false" />
+            android:name=".MainActivity"
+            android:exported="false"
+            android:theme="@style/Theme.NoActionBar" />
     </application>
 
 </manifest>

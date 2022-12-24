@@ -10,37 +10,38 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
 
+
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.datepicker.MaterialDatePicker;
 import com.google.android.material.textfield.TextInputLayout;
 
 import java.util.Objects;
 
-public class SignUpDirector extends AppCompatActivity {
+public class SignUpReceptionistActivity extends AppCompatActivity {
 
     String[] genderList = {"Male","Female","Others"};
-    AutoCompleteTextView genderAutoCompleteTextView,doctorAutoCompleteTextView;
-    ArrayAdapter<String> genderArrayAdapterItems,doctorArrayAdapterItems;
-    EditText eUserName,eEmail,ePassword;
-    TextInputLayout layoutUserName,layoutEmail,layoutPassword,layoutGender,layoutDoctor;
+    AutoCompleteTextView genderAutoCompleteTextView;
+    ArrayAdapter<String> genderArrayAdapterItems;
+    EditText eName,eEmail,ePassword;
+    TextInputLayout layoutUserName,layoutEmail,layoutPassword,layoutGender;
     MaterialButton confirmButton,datePickerButton;
     String Gender = "",ShowDate="",Birthdate = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_signup_director);
+        setContentView(R.layout.activity_signup_receptionist);
 
-        genderAutoCompleteTextView = findViewById(R.id.diGenderSelectDropDownBox);
-        eUserName = findViewById(R.id.diUserNameInput);
-        eEmail = findViewById(R.id.diEmailInput);
-        ePassword = findViewById(R.id.diPasswordInput);
-        datePickerButton = findViewById(R.id.diPickBirthDateButton);
-        layoutUserName = findViewById(R.id.diUserNameInputField);
-        layoutEmail = findViewById(R.id.diEmailLayout);
-        layoutPassword = findViewById(R.id.diPasswordLayout);
-        layoutGender = findViewById(R.id.diGenderMenu);
-        confirmButton =findViewById(R.id.diConfirmButton);
+        genderAutoCompleteTextView = findViewById(R.id.rdiGenderSelectDropDownBox);
+        eName = findViewById(R.id.rdiUserNameInput);
+        eEmail = findViewById(R.id.rdiEmailInput);
+        ePassword = findViewById(R.id.rdiPasswordInput);
+        datePickerButton = findViewById(R.id.rdiPickBirthDateButton);
+        layoutUserName = findViewById(R.id.rdiUserNameInputField);
+        layoutEmail = findViewById(R.id.rdiEmailLayout);
+        layoutPassword = findViewById(R.id.rdiPasswordLayout);
+        layoutGender = findViewById(R.id.rdiGenderMenu);
+        confirmButton =findViewById(R.id.rdiConfirmButton);
 
         genderArrayAdapterItems = new ArrayAdapter<String>(this,R.layout.gender_list,genderList);
         genderAutoCompleteTextView.setAdapter(genderArrayAdapterItems);
@@ -75,12 +76,12 @@ public class SignUpDirector extends AppCompatActivity {
         confirmButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(eUserName.length() != 0) {
+                if(eName.length() != 0) {
                     if(eEmail.length() != 0) {
                         if(ePassword.length() != 0) {
                             if(!Objects.equals(Gender, "")) {
-                                startActivity(new Intent(SignUpDirector.this,SignInActivity.class));
-                            } else {
+                                startActivity(new Intent(SignUpReceptionistActivity.this,SignInActivity.class));
+                             } else {
                                 layoutGender.setError("Select Gender");
                             }
                         } else {
@@ -94,5 +95,6 @@ public class SignUpDirector extends AppCompatActivity {
                 }
             }
         });
+
     }
 }

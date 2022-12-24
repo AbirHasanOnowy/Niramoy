@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1063284687059",
+    "project_id": "niramoy-56df4",
+    "storage_bucket": "niramoy-56df4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1063284687059:android:b84e67342e5f5160d15426",
+        "android_client_info": {
+          "package_name": "com.example.niramoy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1063284687059-r1g29vh7ib4fveg0l8jppmjs45o7vfoc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCL71DlptEkVi-MEDSs4tqwUhHe9nFKQRI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1063284687059-r1g29vh7ib4fveg0l8jppmjs45o7vfoc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
