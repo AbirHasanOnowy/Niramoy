@@ -129,7 +129,7 @@ public class MainActivity extends AppCompatActivity {
         addPrescriptionButton.show();
         Drawable drawable = addButton.getBackground();
         drawable=DrawableCompat.wrap(drawable);
-        DrawableCompat.setTint(drawable,ContextCompat.getColor(this,R.color.gray));
+        DrawableCompat.setTint(drawable,ContextCompat.getColor(this,R.color.black));
         addButton.setBackground(drawable);
         addButton.setImageResource(R.drawable.ic_baseline_cancel_24);
        // addButton.setBackgroundColor(ContextCompat.getColor(this,R.color.black));

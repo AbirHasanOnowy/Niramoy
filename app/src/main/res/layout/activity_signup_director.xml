@@ -18,46 +18,52 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <ImageView
-                android:id="@+id/diLogo"
+            <androidx.cardview.widget.CardView
+                android:id="@+id/logoCard"
                 android:layout_width="wrap_content"
-                android:layout_height="128dp"
-                android:layout_marginTop="64dp"
-                android:layout_marginBottom="24dp"
-                android:src="@drawable/logo1"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="MissingConstraints"
-                tools:layout_editor_absoluteX="0dp" />
+                android:padding="10dp"
+                app:cardCornerRadius="8dp"
+                android:backgroundTint="@color/colorPrimary"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="36dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.495"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/hidAppNameTextView">
+
+                <ImageView
+                    android:id="@+id/logo"
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:src="@drawable/logo1"/>
+            </androidx.cardview.widget.CardView>
 
             <TextView
-                android:id="@+id/diAppNameTextView"
+                android:id="@+id/hidAppNameTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="76dp"
                 android:text="Niramoy"
                 android:textColor="@color/colorPrimary"
                 android:textSize="50sp"
-                app:layout_constraintBottom_toTopOf="@+id/diCreateAccountTextView"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.497"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/diLogo"
-                app:layout_constraintVertical_bias="1.0" />
-
+                app:layout_constraintTop_toTopOf="parent" />
             <TextView
                 android:id="@+id/diCreateAccountTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="41dp"
                 android:text="Sign Up"
+                android:textStyle="bold"
+                android:layout_marginTop="8dp"
                 android:textColor="@color/colorPrimary"
-                android:textSize="16sp"
-                app:layout_constraintStart_toStartOf="parent"
+                android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/diAppNameTextView"
-                app:layout_constraintVertical_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/logoCard"
                 tools:ignore="MissingConstraints" />
+
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/diUserNameInputField"
@@ -75,11 +81,18 @@
                 app:errorIconDrawable="@drawable/error"
                 app:helperText="Required*"
                 app:layout_constraintStart_toStartOf="parent"
+                android:textColorHint="@color/black"
+                app:boxStrokeColor="@color/colorPrimary"
+                app:startIconTint="@color/black"
+                app:hintTextColor="@color/colorPrimary"
+                app:iconTint="@color/colorPrimary"
+                app:helperTextTextColor="@color/red"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/diCreateAccountTextView"
                 app:startIconDrawable="@drawable/ic_baseline_person_18">
 
                 <EditText
+                    android:textColor="@color/black"
                     android:id="@+id/diUserNameInput"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -99,14 +112,17 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="24dp"
                 android:hint="Enter Email"
-                app:boxStrokeColor="@color/colorPrimary"
                 app:endIconMode="clear_text"
                 app:errorEnabled="true"
+                android:textColorHint="@color/black"
+                app:boxStrokeColor="@color/colorPrimary"
+                app:startIconTint="@color/black"
+                app:hintTextColor="@color/colorPrimary"
+                app:iconTint="@color/colorPrimary"
+                app:helperTextTextColor="@color/red"
                 app:errorIconDrawable="@drawable/error"
                 app:helperText="Required*"
                 app:hintEnabled="true"
-                app:hintTextColor="@color/colorPrimary"
-                app:iconTint="@color/colorPrimary"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/diUserNameInputField"
@@ -114,6 +130,7 @@
 
                 <EditText
                     android:id="@+id/diEmailInput"
+                    android:textColor="@color/black"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="text" />
@@ -129,13 +146,17 @@
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="24dp"
-                android:hint="Enter Password"
+                android:textColorHint="@color/black"
                 app:boxStrokeColor="@color/colorPrimary"
+                app:startIconTint="@color/black"
+                app:hintTextColor="@color/colorPrimary"
+                app:iconTint="@color/colorPrimary"
+                app:helperTextTextColor="@color/red"
+                android:hint="Enter Password"
                 app:errorEnabled="true"
                 app:helperText="Required*"
                 app:hintEnabled="true"
-                app:hintTextColor="@color/colorPrimary"
-                app:iconTint="@color/colorPrimary"
+                app:passwordToggleTint="@color/black"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/diEmailLayout"
@@ -144,6 +165,7 @@
 
                 <EditText
                     android:id="@+id/diPasswordInput"
+                    android:textColor="@color/black"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textPassword" />
@@ -157,6 +179,12 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="10dp"
+                android:textColorHint="@color/black"
+                app:boxStrokeColor="@color/colorPrimary"
+                app:startIconTint="@color/black"
+                app:hintTextColor="@color/colorPrimary"
+                app:iconTint="@color/colorPrimary"
+                app:helperTextTextColor="@color/red"
                 android:layout_marginEnd="24dp"
                 android:hint="Select Gender"
                 app:helperText="Required*"
@@ -169,7 +197,7 @@
                     android:id="@+id/diGenderSelectDropDownBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@color/white"
+                    android:textColor="@color/black"
                     android:inputType="none" />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -184,9 +212,14 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="24dp"
                 android:layout_gravity="start"
+                android:textColorHint="@color/black"
+                app:boxStrokeColor="@color/colorPrimary"
+                app:startIconTint="@color/black"
+                app:hintTextColor="@color/colorPrimary"
+                app:iconTint="@color/black"
+                app:helperTextTextColor="@color/red"
                 android:text="  Select Birth Date"
-                app:iconTint="#687173"
-                android:textColor="#687173"
+                android:textColor="@color/black"
                 android:textAlignment="textStart"
                 android:textAllCaps="false"
                 android:textSize="18sp"
