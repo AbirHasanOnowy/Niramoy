@@ -44,6 +44,43 @@
         <entry key="..\:/New/Niramoy/app/src/main/res/layout/doctor_list.xml" value="0.2234375" />
         <entry key="..\:/New/Niramoy/app/src/main/res/layout/gender_list.xml" value="0.2234375" />
         <entry key="..\:/New/Niramoy/app/src/main/res/layout/test_list.xml" value="0.2234375" />
+        <entry key="..\:/Users/Asus/Desktop/Niramoy/app/src/main/res/drawable/ic_baseline_camera_alt_24.xml" value="0.1615" />
+        <entry key="..\:/Users/Asus/Desktop/Niramoy/app/src/main/res/drawable/ic_baseline_create_1.xml" value="0.192" />
+        <entry key="..\:/Users/Asus/Desktop/Niramoy/app/src/main/res/drawable/ic_baseline_email_24.xml" value="0.192" />
+        <entry key="..\:/Users/Asus/Desktop/Niramoy/app/src/main/res/drawable/ic_baseline_lock_24.xml" value="0.192" />
+        <entry key="..\:/Users/Asus/Desktop/Niramoy/app/src/main/res/drawable/ic_baseline_notes_white.xml" value="0.192" />
+        <entry key="..\:/Users/Asus/Desktop/Niramoy/app/src/main/res/drawable/ic_baseline_person_24.xml" value="0.1435" />
+        <entry key="..\:/Users/Asus/Desktop/Niramoy/app/src/main/res/drawable/ic_baseline_person_add_alt_1_24.xml" value="0.192" />
+        <entry key="..\:/Users/Asus/Desktop/Niramoy/app/src/main/res/layout/activity_add_hospital.xml" value="0.234375" />
+        <entry key="..\:/Users/Asus/Desktop/Niramoy/app/src/main/res/layout/activity_add_hospital_admin.xml" value="0.25" />
+        <entry key="..\:/Users/Asus/Desktop/Niramoy/app/src/main/res/layout/activity_admin_director_list.xml" value="0.25" />
+        <entry key="..\:/Users/Asus/Desktop/Niramoy/app/src/main/res/layout/activity_admin_main.xml" value="0.234375" />
+        <entry key="..\:/Users/Asus/Desktop/Niramoy/app/src/main/res/layout/activity_director_data_input.xml" value="0.25" />
+        <entry key="..\:/Users/Asus/Desktop/Niramoy/app/src/main/res/layout/activity_director_main.xml" value="0.25" />
+        <entry key="..\:/Users/Asus/Desktop/Niramoy/app/src/main/res/layout/activity_director_show_details.xml" value="0.2359375" />
+        <entry key="..\:/Users/Asus/Desktop/Niramoy/app/src/main/res/layout/activity_doctor_data_input.xml" value="0.25" />
+        <entry key="..\:/Users/Asus/Desktop/Niramoy/app/src/main/res/layout/activity_enter_patient.xml" value="0.25" />
+        <entry key="..\:/Users/Asus/Desktop/Niramoy/app/src/main/res/layout/activity_enter_prescription.xml" value="0.25" />
+        <entry key="..\:/Users/Asus/Desktop/Niramoy/app/src/main/res/layout/activity_enter_test_report.xml" value="0.25" />
+        <entry key="..\:/Users/Asus/Desktop/Niramoy/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Users/Asus/Desktop/Niramoy/app/src/main/res/layout/activity_nurse_main.xml" value="0.234375" />
+        <entry key="..\:/Users/Asus/Desktop/Niramoy/app/src/main/res/layout/activity_sign_in.xml" value="0.264" />
+        <entry key="..\:/Users/Asus/Desktop/Niramoy/app/src/main/res/layout/activity_signup.xml" value="0.264" />
+        <entry key="..\:/Users/Asus/Desktop/Niramoy/app/src/main/res/layout/activity_signup_director.xml" value="0.25" />
+        <entry key="..\:/Users/Asus/Desktop/Niramoy/app/src/main/res/layout/activity_signup_doctor.xml" value="0.25" />
+        <entry key="..\:/Users/Asus/Desktop/Niramoy/app/src/main/res/layout/activity_signup_nurse.xml" value="0.25" />
+        <entry key="..\:/Users/Asus/Desktop/Niramoy/app/src/main/res/layout/activity_signup_receptionist.xml" value="0.25" />
+        <entry key="..\:/Users/Asus/Desktop/Niramoy/app/src/main/res/layout/activity_splash_screen.xml" value="0.25" />
+        <entry key="..\:/Users/Asus/Desktop/Niramoy/app/src/main/res/layout/director_recyclerview_item.xml" value="0.25" />
+        <entry key="..\:/Users/Asus/Desktop/Niramoy/app/src/main/res/layout/doctor_list.xml" value="0.25" />
+        <entry key="..\:/Users/Asus/Desktop/Niramoy/app/src/main/res/layout/gender_list.xml" value="0.10989583333333333" />
+        <entry key="..\:/Users/Asus/Desktop/Niramoy/app/src/main/res/layout/nav_bar_main_activity.xml" value="0.24895833333333334" />
+        <entry key="..\:/Users/Asus/Desktop/Niramoy/app/src/main/res/layout/nav_bar_main_activity_header.xml" value="0.24895833333333334" />
+        <entry key="..\:/Users/Asus/Desktop/Niramoy/app/src/main/res/layout/test_list.xml" value="0.10989583333333333" />
+        <entry key="..\:/Users/Asus/Desktop/Niramoy/app/src/main/res/menu/nav_admin.xml" value="0.24615384615384617" />
+        <entry key="..\:/Users/Asus/Desktop/Niramoy/app/src/main/res/menu/nav_director.xml" value="0.24895833333333334" />
+        <entry key="..\:/Users/Asus/Desktop/Niramoy/app/src/main/res/menu/nav_menu_main_activity.xml" value="0.25" />
+        <entry key="..\:/Users/Asus/Desktop/Niramoy/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.121" />
       </map>
     </option>
   </component>
