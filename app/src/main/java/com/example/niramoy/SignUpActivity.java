@@ -13,7 +13,7 @@ import com.google.android.material.button.MaterialButton;
 
 import java.util.Objects;
 
-public class SignUp extends AppCompatActivity {
+public class SignUpActivity extends AppCompatActivity {
 
     MaterialButton nextButton;
     String[] positionList = {"Director","Doctor","Receptionist","Nurse"};
@@ -43,13 +43,13 @@ public class SignUp extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(Objects.equals(Position, "Director")){
-                    startActivity(new Intent(SignUp.this, SignUpDirector.class));
+                    startActivity(new Intent(SignUpActivity.this, SignUpDirectorActivity.class));
                 } else if(Objects.equals(Position, "Doctor")){
-                    startActivity(new Intent(SignUp.this, SignUpDoctor.class));
+                    startActivity(new Intent(SignUpActivity.this, SignUpDoctorActivity.class));
                 }else if(Objects.equals(Position, "Receptionist")){
-                    startActivity(new Intent(SignUp.this, SignUpReceiptionist.class));
+                    startActivity(new Intent(SignUpActivity.this, SignUpReceptionistActivity.class));
                 } else if(Objects.equals(Position, "Nurse")){
-                    startActivity(new Intent(SignUp.this, SignUpNurse.class));
+                    startActivity(new Intent(SignUpActivity.this, SignUpNurseActivity.class));
                 }
             }
         });

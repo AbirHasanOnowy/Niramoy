@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".SignUpNurse">
+    tools:context=".SignUpNurseActivity">
 
     <ScrollView
         android:layout_width="0dp"
@@ -275,6 +275,7 @@
                 app:startIconTint="@color/black"
                 app:hintTextColor="@color/colorPrimary"
                 app:iconTint="@color/black"
+                app:strokeColor="@color/black"
                 app:helperTextTextColor="@color/red"
                 android:layout_marginEnd="24dp"
                 android:layout_gravity="start"

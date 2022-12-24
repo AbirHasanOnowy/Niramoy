@@ -3,29 +3,31 @@
 
     <group
         android:id="@+id/group1"
-        android:visible="false"
         android:checkableBehavior="single">
-        <item android:title="Task">
+        <item android:title="Tasks">
             <menu>
 
                 <item
-                    android:id="@+id/mHome"
-                    android:icon="@drawable/ic_baseline_menu_24"
-                    android:title="Home" />
+                    android:id="@+id/directorListButton"
+                    android:icon="@drawable/ic_baseline_format_list_bulleted_24"
+                    android:title="Director List" />
 
                 <item
                     android:id="@+id/mShare"
                     android:icon="@drawable/ic_baseline_menu_24"
+                    android:visible="false"
                     android:title="Share" />
 
                 <item
                     android:id="@+id/mDashboard"
+                    android:visible="false"
                     android:icon="@drawable/ic_baseline_menu_24"
                     android:title="Dashboard" />
 
                 <item
                     android:id="@+id/mRate"
                     android:icon="@drawable/ic_baseline_menu_24"
+                    android:visible="false"
                     android:title="Rate Me" />
 
             </menu>
@@ -37,7 +39,7 @@
     <group
         android:id="@+id/group2"
         android:checkableBehavior="single">
-        <item android:title="Tasks">
+        <item android:title="More">
 
             <menu>
                 <item

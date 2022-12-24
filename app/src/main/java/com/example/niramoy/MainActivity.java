@@ -35,48 +35,10 @@ public class MainActivity extends AppCompatActivity {
         addPatientButton = findViewById(R.id.addPatientButton);
         addPrescriptionButton=findViewById(R.id.addPrescriptionButton);
 
-
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_View);
         imageMenu = findViewById(R.id.imageMenu);
-
-        toggle = new ActionBarDrawerToggle(MainActivity.this, drawerLayout, R.string.open, R.string.close);
-        drawerLayout.addDrawerListener(toggle);
-        toggle.syncState();
-        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-
-                switch (item.getItemId()) {
-                    case R.id.mHome:
-                        Toast.makeText(MainActivity.this, "Clicked", Toast.LENGTH_SHORT).show();
-                        drawerLayout.closeDrawers();
-                        break;
-
-                    case R.id.mShare:
-                        Toast.makeText(MainActivity.this, "Facebook", Toast.LENGTH_SHORT).show();
-                        drawerLayout.closeDrawers();
-                        break;
-
-                }
-
-                return false;
-            }
-        });
-        //------------------------------
-        // ------------------------
-        // App Bar Click Event
-        imageMenu = findViewById(R.id.imageMenu);
-
-        imageMenu.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // Code Here
-                drawerLayout.openDrawer(GravityCompat.START);
-            }
-        });
-
-
+        navDrawer();
 
         addPrescriptionButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -109,6 +71,44 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+
+
+    private void navDrawer() {
+        toggle = new ActionBarDrawerToggle(MainActivity.this, drawerLayout, R.string.open, R.string.close);
+        drawerLayout.addDrawerListener(toggle);
+        toggle.syncState();
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+                switch (item.getItemId()) {
+                    case R.id.logOutButton:
+                        Toast.makeText(MainActivity.this, "Log out", Toast.LENGTH_SHORT).show();
+                        drawerLayout.closeDrawers();
+                        break;
+
+                    case R.id.policyButton:
+                        Toast.makeText(MainActivity.this, "Policy", Toast.LENGTH_SHORT).show();
+                        drawerLayout.closeDrawers();
+                        break;
+
+                }
+
+                return false;
+            }
+        });
+        // App Bar Click Event
+        imageMenu = findViewById(R.id.imageMenu);
+
+        imageMenu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Code Here
+                drawerLayout.openDrawer(GravityCompat.START);
+            }
+        });
     }
 
     private void hideButtons() {

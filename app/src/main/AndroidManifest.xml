@@ -14,19 +14,25 @@
         android:theme="@style/Theme.Niramoy"
         tools:targetApi="31">
         <activity
+            android:name=".AdminDirectorListActivity"
+            android:exported="false" />
+        <activity
             android:name=".AddHospitalActivityAdmin"
             android:exported="false" />
         <activity
             android:name=".AdminMainActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.NoActionBar" />
         <activity
             android:name=".NurseMainActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.NoActionBar" />
         <activity
             android:name=".DirectorShowDetailsActivity"
             android:exported="false" />
         <activity
             android:name=".DirectorMainActivity"
+            android:theme="@style/Theme.NoActionBar"
             android:exported="false" />
         <activity
             android:name=".EnterPrescriptionActivity"
@@ -35,19 +41,19 @@
             android:name=".EnterPatientActivity"
             android:exported="false" />
         <activity
-            android:name=".SignUpReceiptionist"
+            android:name=".SignUpReceptionistActivity"
             android:exported="false"
             android:theme="@style/Theme.NoActionBar" />
         <activity
-            android:name=".SignUpNurse"
+            android:name=".SignUpNurseActivity"
             android:exported="false"
             android:theme="@style/Theme.NoActionBar" />
         <activity
-            android:name=".SignUpDoctor"
+            android:name=".SignUpDoctorActivity"
             android:exported="false"
             android:theme="@style/Theme.NoActionBar" />
         <activity
-            android:name=".SignUp"
+            android:name=".SignUpActivity"
             android:exported="false"
             android:theme="@style/Theme.NoActionBar" />
         <activity
@@ -65,7 +71,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".SignUpDirector"
+            android:name=".SignUpDirectorActivity"
             android:exported="false"
             android:theme="@style/Theme.NoActionBar" />
         <activity
@@ -73,8 +79,8 @@
             android:exported="false" />
         <activity
             android:name=".MainActivity"
-            android:theme="@style/Theme.NoActionBar"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.NoActionBar" />
     </application>
 
 </manifest>

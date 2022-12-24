@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".SignUpReceiptionist">
+    tools:context=".SignUpReceptionistActivity">
 
     <ScrollView
         android:layout_width="0dp"
@@ -219,6 +219,7 @@
                 app:hintTextColor="@color/colorPrimary"
                 app:iconTint="@color/black"
                 app:helperTextTextColor="@color/red"
+                app:strokeColor="@color/black"
                 android:textAllCaps="false"
                 android:textSize="18sp"
                 app:icon="@drawable/ic_baseline_birth_date_24"

@@ -16,7 +16,7 @@ import com.google.android.material.textfield.TextInputLayout;
 
 import java.util.Objects;
 
-public class SignUpNurse extends AppCompatActivity {
+public class SignUpNurseActivity extends AppCompatActivity {
 
     String[] genderList = {"Male","Female","Others"};
     AutoCompleteTextView genderAutoCompleteTextView;
@@ -84,7 +84,7 @@ public class SignUpNurse extends AppCompatActivity {
                         if(ePassword.length() != 0) {
                             if(!Objects.equals(Gender, "")) {
                                 if(eDepartment.length() != 0) {
-                                    startActivity(new Intent(SignUpNurse.this,SignInActivity.class));
+                                    startActivity(new Intent(SignUpNurseActivity.this,SignInActivity.class));
                                 } else {
                                     layoutDepartment.setError("Enter Department");
                                 }
