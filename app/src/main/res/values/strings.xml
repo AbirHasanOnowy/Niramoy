@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Niramoy</string>
+    <string name="open" >Dr. Rafi</string>
+    <string name="close" >Doctor</string>
 </resources>
