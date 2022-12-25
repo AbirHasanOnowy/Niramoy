@@ -26,6 +26,7 @@
             android:orientation="vertical"
             >
             <TextView
+                android:id="@+id/navName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="?attr/colorPrimary"
@@ -36,6 +37,7 @@
                 />
 
             <TextView
+                android:id="@+id/navPosition"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="#AE000000"
