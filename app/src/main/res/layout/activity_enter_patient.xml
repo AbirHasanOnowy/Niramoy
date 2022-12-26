@@ -51,7 +51,8 @@
                     android:id="@+id/PatientIdET"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="text"
+                    android:inputType="number"
+                    android:maxLength="9"
                     android:textColor="@color/black" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -120,7 +121,7 @@
                         android:id="@+id/patientDOBET"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:inputType="number"
+                        android:inputType="text"
                         android:textColor="@color/black" />
 
                 </com.google.android.material.textfield.TextInputLayout>
@@ -205,7 +206,7 @@
                 android:textSize="16sp" />
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/testSaveButton"
+                android:id="@+id/patientSaveButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/requiredText"

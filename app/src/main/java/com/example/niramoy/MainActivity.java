@@ -6,9 +6,11 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
@@ -18,14 +20,41 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
+
+import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     ActionBarDrawerToggle toggle;
     ImageView imageMenu;
+    TextView navNameTextView,navPositionTextView;
     FloatingActionButton addButton, addTestButton, addPatientButton,addPrescriptionButton;
     Boolean isVis;
+    String uid,position,name,hid,email,dept,education,gender,birthday,password;
+
+    private FirebaseAuth fAuth;
+    private FirebaseFirestore fStore;
+    private DocumentReference uidref;
+
+    private static final String KEY_HID = "HID";
+    private static final String KEY_POS = "Position";
+    private static final String KEY_NAME = "Name";
+    private static final String KEY_EMAIL = "Email";
+    private static final String KEY_PASS = "Password";
+    private static final String KEY_DEPT = "Dept";
+    private static final String KEY_EDU = "Education";
+    private static final String KEY_GENDER = "Gender";
+    private static final String KEY_DOB = "DoB";
+    private static final String KEY_VERIFY = "Verified";
+    private static final String KEY_UID = "Uid";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,15 +64,40 @@ public class MainActivity extends AppCompatActivity {
         addPatientButton = findViewById(R.id.addPatientButton);
         addPrescriptionButton=findViewById(R.id.addPrescriptionButton);
 
+
+        fAuth = FirebaseAuth.getInstance();
+        fStore = FirebaseFirestore.getInstance();
+
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_View);
         imageMenu = findViewById(R.id.imageMenu);
         navDrawer();
 
+        uid = Objects.requireNonNull(fAuth.getCurrentUser()).getUid();
+        uidref = fStore.collection("UID").document(uid);
+        uidref.addSnapshotListener(MainActivity.this, new EventListener<DocumentSnapshot>() {
+            @Override
+            public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
+                hid = value.getString(KEY_HID);
+                position = value.getString(KEY_POS);
+                name = value.getString(KEY_NAME);
+                email = value.getString(KEY_EMAIL);
+                dept = value.getString(KEY_DEPT);
+                password = value.getString(KEY_PASS);
+                education = value.getString(KEY_EDU);
+                gender = value.getString(KEY_GENDER);
+                birthday =  value.getString(KEY_DOB);
+            }
+        });
+
         addPrescriptionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this,EnterPrescriptionActivity.class));
+                Intent prescribe = new Intent(MainActivity.this, EnterPrescriptionActivity.class);
+                prescribe.putExtra("HID",hid);
+                prescribe.putExtra("DNAME",name);
+                prescribe.putExtra("EDU",education);
+                startActivity(prescribe);
             }
         });
 
@@ -51,7 +105,11 @@ public class MainActivity extends AppCompatActivity {
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(!isVis){
+                if(Objects.equals(position, "Receptionist"))
+                {
+                    startActivity(new Intent(MainActivity.this, EnterPatientActivity.class));
+                }
+                else if(!isVis && Objects.equals(position, "Doctor")){
                     showButtons();
                 }else {
                     hideButtons();
@@ -61,7 +119,11 @@ public class MainActivity extends AppCompatActivity {
         addTestButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this,EnterTestReportActivity.class));
+                Intent test = new Intent(MainActivity.this,EnterTestReportActivity.class);
+                test.putExtra("HID",hid);
+                test.putExtra("DNAME",name);
+                test.putExtra("EDU",education);
+                startActivity(test);
             }
         });
         addPatientButton.setOnClickListener(new View.OnClickListener() {
@@ -73,6 +135,21 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+//    private void receptionist() {
+//        if(Objects.equals(position, "Receptionist"))
+//        {
+//            Drawable drawable = addButton.getBackground();
+//            drawable=DrawableCompat.wrap(drawable);
+//            DrawableCompat.setTint(drawable,ContextCompat.getColor(MainActivity.this,R.color.colorPrimary));
+//            addButton.setBackground(drawable);
+//            addButton.setImageResource(R.drawable.ic_baseline_person_add_alt_1_24);
+//            Toast.makeText(MainActivity.this,"position "+position,Toast.LENGTH_SHORT).show();
+//        }
+//        else
+//        {
+//            Toast.makeText(MainActivity.this,"position "+position,Toast.LENGTH_SHORT).show();
+//        }
+//    }
 
 
     private void navDrawer() {
@@ -102,11 +179,18 @@ public class MainActivity extends AppCompatActivity {
         // App Bar Click Event
         imageMenu = findViewById(R.id.imageMenu);
 
+
+
+
         imageMenu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Code Here
+
                 drawerLayout.openDrawer(GravityCompat.START);
+                navNameTextView = findViewById(R.id.navName);
+                navPositionTextView = findViewById(R.id.navPosition);
+                navNameTextView.setText(name);
+                navPositionTextView.setText(position);
             }
         });
     }
@@ -124,9 +208,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void showButtons() {
-        addPatientButton.show();
         addTestButton.show();
         addPrescriptionButton.show();
+//        if(Objects.equals(position, "Receptionist")) {
+//            addTestButton.setVisibility(View.GONE);
+//            addPrescriptionButton.setVisibility(View.GONE);
+//        }
+        addPatientButton.show();
+
         Drawable drawable = addButton.getBackground();
         drawable=DrawableCompat.wrap(drawable);
         DrawableCompat.setTint(drawable,ContextCompat.getColor(this,R.color.black));
