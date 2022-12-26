@@ -14,6 +14,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.datepicker.MaterialDatePicker;
@@ -21,9 +22,12 @@ import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
@@ -171,6 +175,15 @@ public class SignUpDoctorActivity extends AppCompatActivity {
                                if(task.isSuccessful()) {
                                    uid = Objects.requireNonNull(fAuth.getCurrentUser()).getUid();
                                    dbReference = fStore.collection("UID").document(uid);
+//                                   Task<QuerySnapshot> users = fStore.collection("UID").get();
+//                                   users.addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+//                                       @Override
+//                                       public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+//                                          List<DocumentSnapshot> docs = queryDocumentSnapshots.getDocuments();
+//                                          docs.forEach();
+//                                       }
+//                                   })
+
 
                                    Map<String,Object> val = new HashMap<>();
                                    val.put(KEY_HID,hid);
@@ -210,7 +223,7 @@ public class SignUpDoctorActivity extends AppCompatActivity {
                                                        }
                                                    });
                                                } else {
-                                                   hospRef = fStore.collection("Hospital_ID").document(hid).collection(position).document(uid);
+                                                   hospRef = fStore.collection("Hospitals").document(hid).collection(position).document(uid);
 
                                                    Map<String, Object> work = new HashMap<>();
                                                    work.put(KEY_UID, uid);
@@ -241,30 +254,6 @@ public class SignUpDoctorActivity extends AppCompatActivity {
                            }
                        });
 
-
-
-//
-//                if(eName.length() != 0) {
-//                    if(eEmail.length() != 0) {
-//                        if(ePassword.length() != 0) {
-//                            if(!Objects.equals(Gender, "")) {
-//                                if(eDepartment.length() != 0) {
-//                                    startActivity(new Intent(SignUpDoctorActivity.this,SignInActivity.class));
-//                                } else {
-//                                    layoutDepartment.setError("Enter Department");
-//                                }
-//                            } else {
-//                                layoutGender.setError("Select Gender");
-//                            }
-//                        } else {
-//                            layoutPassword.setError("Enter Password");
-//                        }
-//                    } else {
-//                        layoutEmail.setError("Enter Valid Email");
-//                    }
-//                } else {
-//                    layoutUserName.setError("Enter User Name");
-//                }
             }
         });
     }

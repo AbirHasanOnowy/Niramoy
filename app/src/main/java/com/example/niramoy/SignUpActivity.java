@@ -104,22 +104,6 @@ public class SignUpActivity extends AppCompatActivity {
                         }
                     }
                 });
-
-
-
-
-
-
-
-//                if(Objects.equals(Position, "Director")){
-//                    startActivity(new Intent(SignUpActivity.this, SignUpDirectorActivity.class));
-//                } else if(Objects.equals(Position, "Doctor")){
-//                    startActivity(new Intent(SignUpActivity.this, SignUpDoctorActivity.class));
-//                }else if(Objects.equals(Position, "Receptionist")){
-//                    startActivity(new Intent(SignUpActivity.this, SignUpReceptionistActivity.class));
-//                } else if(Objects.equals(Position, "Nurse")){
-//                    startActivity(new Intent(SignUpActivity.this, SignUpNurseActivity.class));
-//                }
             }
         });
     }

@@ -87,14 +87,17 @@ public class MainActivity extends AppCompatActivity {
                 education = value.getString(KEY_EDU);
                 gender = value.getString(KEY_GENDER);
                 birthday =  value.getString(KEY_DOB);
-
             }
         });
 
         addPrescriptionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this,EnterPrescriptionActivity.class));
+                Intent prescribe = new Intent(MainActivity.this, EnterPrescriptionActivity.class);
+                prescribe.putExtra("HID",hid);
+                prescribe.putExtra("DNAME",name);
+                prescribe.putExtra("EDU",education);
+                startActivity(prescribe);
             }
         });
 
@@ -102,7 +105,11 @@ public class MainActivity extends AppCompatActivity {
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(!isVis){
+                if(Objects.equals(position, "Receptionist"))
+                {
+                    startActivity(new Intent(MainActivity.this, EnterPatientActivity.class));
+                }
+                else if(!isVis && Objects.equals(position, "Doctor")){
                     showButtons();
                 }else {
                     hideButtons();
@@ -112,7 +119,11 @@ public class MainActivity extends AppCompatActivity {
         addTestButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this,EnterTestReportActivity.class));
+                Intent test = new Intent(MainActivity.this,EnterTestReportActivity.class);
+                test.putExtra("HID",hid);
+                test.putExtra("DNAME",name);
+                test.putExtra("EDU",education);
+                startActivity(test);
             }
         });
         addPatientButton.setOnClickListener(new View.OnClickListener() {
@@ -124,6 +135,21 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+//    private void receptionist() {
+//        if(Objects.equals(position, "Receptionist"))
+//        {
+//            Drawable drawable = addButton.getBackground();
+//            drawable=DrawableCompat.wrap(drawable);
+//            DrawableCompat.setTint(drawable,ContextCompat.getColor(MainActivity.this,R.color.colorPrimary));
+//            addButton.setBackground(drawable);
+//            addButton.setImageResource(R.drawable.ic_baseline_person_add_alt_1_24);
+//            Toast.makeText(MainActivity.this,"position "+position,Toast.LENGTH_SHORT).show();
+//        }
+//        else
+//        {
+//            Toast.makeText(MainActivity.this,"position "+position,Toast.LENGTH_SHORT).show();
+//        }
+//    }
 
 
     private void navDrawer() {
@@ -184,10 +210,10 @@ public class MainActivity extends AppCompatActivity {
     private void showButtons() {
         addTestButton.show();
         addPrescriptionButton.show();
-        if(Objects.equals(position, "Receptionist")) {
-            addTestButton.setVisibility(View.GONE);
-            addPrescriptionButton.setVisibility(View.GONE);
-        }
+//        if(Objects.equals(position, "Receptionist")) {
+//            addTestButton.setVisibility(View.GONE);
+//            addPrescriptionButton.setVisibility(View.GONE);
+//        }
         addPatientButton.show();
 
         Drawable drawable = addButton.getBackground();

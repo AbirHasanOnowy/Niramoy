@@ -106,15 +106,19 @@ public class SignInActivity extends AppCompatActivity {
                                         if (Objects.equals(position, "Doctor") || Objects.equals(position, "Receptionist")) {
                                             Toast.makeText(SignInActivity.this, "Welcome " + name, Toast.LENGTH_LONG).show();
                                             startActivity(new Intent(SignInActivity.this, MainActivity.class));
+                                            finish();
                                         } else if (Objects.equals(position, "Director")) {
                                             Toast.makeText(SignInActivity.this, "Welcome " + name, Toast.LENGTH_LONG).show();
                                             startActivity(new Intent(SignInActivity.this, DirectorMainActivity.class));
+                                            finish();
                                         } else if (Objects.equals(position, "Admin")) {
                                             Toast.makeText(SignInActivity.this, "Welcome " + name, Toast.LENGTH_LONG).show();
                                             startActivity(new Intent(SignInActivity.this, AdminMainActivity.class));
+                                            finish();
                                         } else {
                                             Toast.makeText(SignInActivity.this, "Welcome " + name, Toast.LENGTH_LONG).show();
                                             startActivity(new Intent(SignInActivity.this, NurseMainActivity.class));
+                                            finish();
                                         }
                                     } else {
                                         Toast.makeText(SignInActivity.this, "Please wait for Director to assign you", Toast.LENGTH_LONG).show();
@@ -129,15 +133,15 @@ public class SignInActivity extends AppCompatActivity {
                     }
                 });
 
-                createId.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        //startActivity(new Intent(SignInActivity.this, SignUp.class));
-                        startActivity(new Intent(SignInActivity.this, SignUpActivity.class));
 
-                    }
-                });
 
+            }
+        });
+
+        createId.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(SignInActivity.this, SignUpActivity.class));
             }
         });
 
