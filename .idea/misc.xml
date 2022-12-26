@@ -28,8 +28,13 @@
         <entry key="..\:/New/Niramoy/app/src/main/res/drawable/ic_baseline_login_24.xml" value="0.111" />
         <entry key="..\:/New/Niramoy/app/src/main/res/drawable/ic_baseline_person_18.xml" value="0.126" />
         <entry key="..\:/New/Niramoy/app/src/main/res/drawable/ic_launcher_background.xml" value="0.13" />
+        <entry key="..\:/New/Niramoy/app/src/main/res/layout/activity_add_hospital_admin.xml" value="0.22447916666666667" />
+        <entry key="..\:/New/Niramoy/app/src/main/res/layout/activity_admin_director_list.xml" value="0.22447916666666667" />
+        <entry key="..\:/New/Niramoy/app/src/main/res/layout/activity_admin_main.xml" value="0.22447916666666667" />
         <entry key="..\:/New/Niramoy/app/src/main/res/layout/activity_create_account.xml" value="0.25" />
         <entry key="..\:/New/Niramoy/app/src/main/res/layout/activity_director_data_input.xml" value="0.39650413983440663" />
+        <entry key="..\:/New/Niramoy/app/src/main/res/layout/activity_director_main.xml" value="0.22447916666666667" />
+        <entry key="..\:/New/Niramoy/app/src/main/res/layout/activity_director_show_details.xml" value="0.22447916666666667" />
         <entry key="..\:/New/Niramoy/app/src/main/res/layout/activity_doctor_data_input.xml" value="0.25" />
         <entry key="..\:/New/Niramoy/app/src/main/res/layout/activity_enter_patient.xml" value="0.25" />
         <entry key="..\:/New/Niramoy/app/src/main/res/layout/activity_enter_prescription.xml" value="0.25" />

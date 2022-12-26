@@ -57,7 +57,7 @@ public class EnterPatientActivity extends AppCompatActivity {
 
     private FirebaseStorage firebaseStorage;
     private FirebaseFirestore fStore;
-    private DocumentReference dataRef;
+    private DocumentReference dataRef,picRef;
     private StorageReference imageStorageReference;
     private final int REQ_CODE = 1;
 
@@ -161,6 +161,18 @@ public class EnterPatientActivity extends AppCompatActivity {
                             @Override
                             public void onSuccess(Uri uri) {
                                 imagelink = uri.toString();
+
+                                picRef = fStore.collection("Pictures").document(patientId);
+                                Map<String,Object> pic = new HashMap<>();
+                                pic.put(KEY_URL,imagelink);
+                                picRef.set(pic).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<Void> task) {
+                                        if(task.isSuccessful()) {
+                                            Toast.makeText(EnterPatientActivity.this,"Picture Added to Pic Storage",Toast.LENGTH_SHORT).show();
+                                        }
+                                    }
+                                });
 
                                 dataRef = fStore.collection("Patients").document(patientId);
                                 Map<String,Object> val = new HashMap<>();
