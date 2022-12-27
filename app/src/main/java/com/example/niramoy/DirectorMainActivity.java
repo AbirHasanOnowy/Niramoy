@@ -22,6 +22,8 @@ import com.example.niramoy.adapters.AdminAdapter;
 import com.example.niramoy.adapters.DirectorRvAdapter;
 import com.example.niramoy.classes.DirectorAdminClass;
 import com.example.niramoy.classes.DirectorMainClass;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
@@ -29,6 +31,8 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 import java.util.Objects;
@@ -40,16 +44,17 @@ public class DirectorMainActivity extends AppCompatActivity {
     ImageView imageMenu;
     TextView navNameTextView,navPositionTextView;
     String uid,position,name,hid,email,dept,education,gender,birthday,password;
+    String euid,epos,ename,ehid,eMail,edept,eEdu,eGen,eBir;
 
     RecyclerView recyclerView;
     ArrayList<DirectorMainClass> directorArrayLIst;
     DirectorRvAdapter adminAdapter;
     private LinearLayoutManager linearLayoutManager;
-    DirectorMainClass directorAdminClass;
+    DirectorMainClass directorMainClass;
 
     private FirebaseAuth fAuth;
     private FirebaseFirestore fStore;
-    private DocumentReference uidref;
+    private DocumentReference uidref,employeeRef;
 
     private static final String KEY_HID = "HID";
     private static final String KEY_POS = "Position";
@@ -77,11 +82,6 @@ public class DirectorMainActivity extends AppCompatActivity {
         navDrawer();
 
         directorArrayLIst=new ArrayList<>();
-        directorAdminClass=new DirectorMainClass("dir@gmail.com","1212","Abir","Doctor","squareldld");
-        directorArrayLIst.add(directorAdminClass);
-        directorArrayLIst.add(directorAdminClass);
-        directorArrayLIst.add(directorAdminClass);
-        directorArrayLIst.add(directorAdminClass);
         recyclerView = findViewById(R.id.directorRV);
         linearLayoutManager = new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false);
         adminAdapter = new DirectorRvAdapter(DirectorMainActivity.this, ContextCompat.getColor(this, R.color.colorPrimary), ContextCompat.getColor(this, R.color.teal_200), directorArrayLIst);
@@ -94,6 +94,18 @@ public class DirectorMainActivity extends AppCompatActivity {
             @Override
             public void customOnClick(int position, View v) {
                 Intent intent = new Intent(DirectorMainActivity.this,DirectorShowDetailsActivity.class);
+                DirectorMainClass directorMainClass1;
+                directorMainClass1=directorArrayLIst.get(position);
+                intent.putExtra(KEY_HID,directorMainClass1.getHospitalID());
+                intent.putExtra(KEY_POS,directorMainClass1.getEmployeePosition());
+                intent.putExtra(KEY_NAME,directorMainClass1.getEmployeeName());
+                intent.putExtra(KEY_EMAIL,directorMainClass1.getEmployeeEmail());
+                intent.putExtra(KEY_DEPT,directorMainClass1.getEmployeeDept());
+                intent.putExtra(KEY_EDU,directorMainClass1.getEmployeeEdu());
+                intent.putExtra(KEY_GENDER,directorMainClass1.getEmployeeGender());
+                intent.putExtra(KEY_DOB,directorMainClass1.getEmployeeBirthdate());
+                intent.putExtra(KEY_VERIFY,directorMainClass1.getIsVarified());
+                intent.putExtra(KEY_UID,directorMainClass1.getEmployeeId());
                 startActivity(intent);
             }
 
@@ -117,9 +129,82 @@ public class DirectorMainActivity extends AppCompatActivity {
                 education = value.getString(KEY_EDU);
                 gender = value.getString(KEY_GENDER);
                 birthday =  value.getString(KEY_DOB);
+                fStore.collection("Hospitals").document(hid).collection("Doctor")
+                        .get()
+                        .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                            @Override
+                            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                                if (task.isSuccessful()) {
+                                    for (QueryDocumentSnapshot document : task.getResult()) {
+                                        euid = document.getString("Uid");
+
+                                        employeeRef = fStore.collection("UID").document(euid);
+                                        employeeRef.addSnapshotListener(DirectorMainActivity.this, new EventListener<DocumentSnapshot>() {
+                                            @Override
+                                            public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
+                                                directorMainClass= new DirectorMainClass(value.getString(KEY_EMAIL),value.getId(),value.getString(KEY_NAME),value.getString(KEY_POS),value.getString(KEY_HID),value.getString(KEY_VERIFY),value.getString(KEY_DEPT),value.getString(KEY_DOB),value.getString(KEY_EDU),value.getString(KEY_GENDER));
+                                                directorArrayLIst.add(directorMainClass);
+                                                adminAdapter.notifyDataSetChanged();
+                                            }
+                                        });
+                                    }
+                                } else {
+                                    Toast.makeText(DirectorMainActivity.this,"Unable to fetch data",Toast.LENGTH_LONG).show();
+                                }
+                            }
+                        });
+                fStore.collection("Hospitals").document(hid).collection("Receptionist")
+                        .get()
+                        .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                            @Override
+                            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                                if (task.isSuccessful()) {
+                                    for (QueryDocumentSnapshot document : task.getResult()) {
+                                        euid = document.getString("Uid");
+
+                                        employeeRef = fStore.collection("UID").document(euid);
+                                        employeeRef.addSnapshotListener(DirectorMainActivity.this, new EventListener<DocumentSnapshot>() {
+                                            @Override
+                                            public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
+                                                directorMainClass= new DirectorMainClass(value.getString(KEY_EMAIL),value.getId(),value.getString(KEY_NAME),value.getString(KEY_POS),value.getString(KEY_HID),value.getString(KEY_VERIFY),value.getString(KEY_DEPT),value.getString(KEY_DOB),value.getString(KEY_EDU),value.getString(KEY_GENDER));
+                                                directorArrayLIst.add(directorMainClass);
+                                                adminAdapter.notifyDataSetChanged();
+                                            }
+                                        });
+                                    }
+                                } else {
+                                    Toast.makeText(DirectorMainActivity.this,"Unable to fetch data",Toast.LENGTH_LONG).show();
+                                }
+                            }
+                        });
+                fStore.collection("Hospitals").document(hid).collection("Nurse")
+                        .get()
+                        .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                            @Override
+                            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                                if (task.isSuccessful()) {
+                                    for (QueryDocumentSnapshot document : task.getResult()) {
+                                        euid = document.getString("Uid");
+
+                                        employeeRef = fStore.collection("UID").document(euid);
+                                        employeeRef.addSnapshotListener(DirectorMainActivity.this, new EventListener<DocumentSnapshot>() {
+                                            @Override
+                                            public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
+                                                directorMainClass= new DirectorMainClass(value.getString(KEY_EMAIL),value.getId(),value.getString(KEY_NAME),value.getString(KEY_POS),value.getString(KEY_HID),value.getString(KEY_VERIFY),value.getString(KEY_DEPT),value.getString(KEY_DOB),value.getString(KEY_EDU),value.getString(KEY_GENDER));
+                                                directorArrayLIst.add(directorMainClass);
+                                                adminAdapter.notifyDataSetChanged();
+                                            }
+                                        });
+                                    }
+                                } else {
+                                    Toast.makeText(DirectorMainActivity.this,"Unable to fetch data",Toast.LENGTH_LONG).show();
+                                }
+                            }
+                        });
 
             }
         });
+
     }
 
     private void navDrawer() {

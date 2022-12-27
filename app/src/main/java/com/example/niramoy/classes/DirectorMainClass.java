@@ -1,16 +1,68 @@
 package com.example.niramoy.classes;
 
 public class DirectorMainClass {
-    private String employeeEmail,employeeId,employeeName, employeePosition, hospitalID;
-    private boolean isVarified;
+    private String employeeEmail,employeeId,employeeName, employeePosition, hospitalID, isVarified, employeeDept, employeeBirthdate,employeeEdu, employeeGender ;
 
-    public DirectorMainClass(String employeeEmail, String employeeId,String employeeName, String employeePosition, String hospitalID, boolean isVarified) {
+    public String getIsVarified() {
+        return isVarified;
+    }
+
+    public void setIsVarified(String isVarified) {
+        this.isVarified = isVarified;
+    }
+
+    public String getEmployeeDept() {
+        return employeeDept;
+    }
+
+    public void setEmployeeDept(String employeeDept) {
+        this.employeeDept = employeeDept;
+    }
+
+    public String getEmployeeBirthdate() {
+        return employeeBirthdate;
+    }
+
+    public void setEmployeeBirthdate(String employeeBirthdate) {
+        this.employeeBirthdate = employeeBirthdate;
+    }
+
+    public String getEmployeeEdu() {
+        return employeeEdu;
+    }
+
+    public void setEmployeeEdu(String employeeEdu) {
+        this.employeeEdu = employeeEdu;
+    }
+
+    public String getEmployeeGender() {
+        return employeeGender;
+    }
+
+    public void setEmployeeGender(String employeeGender) {
+        this.employeeGender = employeeGender;
+    }
+
+    public DirectorMainClass(String employeeEmail, String employeeId, String employeeName, String employeePosition, String hospitalID, String isVarified ) {
         this.employeeEmail = employeeEmail;
         this.employeeId = employeeId;
         this.employeeName = employeeName;
         this.employeePosition = employeePosition;
         this.hospitalID = hospitalID;
         this.isVarified = isVarified;
+    }
+
+    public DirectorMainClass(String employeeEmail, String employeeId, String employeeName, String employeePosition, String hospitalID, String isVarified, String employeeDept, String employeeBirthdate, String employeeEdu, String employeeGender) {
+        this.employeeEmail = employeeEmail;
+        this.employeeId = employeeId;
+        this.employeeName = employeeName;
+        this.employeePosition = employeePosition;
+        this.hospitalID = hospitalID;
+        this.isVarified = isVarified;
+        this.employeeDept = employeeDept;
+        this.employeeBirthdate = employeeBirthdate;
+        this.employeeEdu = employeeEdu;
+        this.employeeGender = employeeGender;
     }
 
     public String getEmployeeEmail() {
@@ -60,11 +112,11 @@ public class DirectorMainClass {
         this.hospitalID = hospitalID;
     }
 
-    public boolean isVarified() {
+    public String isVarified() {
         return isVarified;
     }
 
-    public void setVarified(boolean varified) {
+    public void setVarified(String varified) {
         isVarified = varified;
     }
 }
