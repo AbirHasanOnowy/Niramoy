@@ -8,10 +8,12 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -32,6 +34,7 @@ public class NurseMainActivity extends AppCompatActivity {
     ImageView imageMenu;
     TextView navNameTextView,navPositionTextView;
     String uid,position,name,hid,email,dept,education,gender,birthday,password;
+    LinearLayout layoutProfile;
 
     private FirebaseAuth fAuth;
     private FirebaseFirestore fStore;
@@ -94,6 +97,9 @@ public class NurseMainActivity extends AppCompatActivity {
                     case R.id.logOutButton:
                         Toast.makeText(NurseMainActivity.this,"Log out", Toast.LENGTH_SHORT).show();
                         drawerLayout.closeDrawers();
+                        fAuth.signOut();
+                        startActivity(new Intent(NurseMainActivity.this,SignInActivity.class));
+                        finish();
                         break;
 
                     case R.id.policyButton:
@@ -117,6 +123,25 @@ public class NurseMainActivity extends AppCompatActivity {
                 navPositionTextView = findViewById(R.id.navPosition);
                 navNameTextView.setText(name);
                 navPositionTextView.setText(position);
+
+                layoutProfile = findViewById(R.id.drawarHeader);
+                layoutProfile.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent profile = new Intent(NurseMainActivity.this,UserProfileActivity.class);
+                        profile.putExtra("HID",hid);
+                        profile.putExtra("Position",position);
+                        profile.putExtra("Name",name);
+                        profile.putExtra("Email",email);
+                        profile.putExtra("Dept",dept);
+                        profile.putExtra("Pass",password);
+                        profile.putExtra("Edu",education);
+                        profile.putExtra("Gender",gender);
+                        profile.putExtra("Birthday",birthday);
+                        startActivity(profile);
+
+                    }
+                });
             }
         });
     }
