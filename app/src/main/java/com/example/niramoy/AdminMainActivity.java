@@ -28,6 +28,10 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 
 import java.util.ArrayList;
 import java.util.Objects;
@@ -73,11 +77,26 @@ public class AdminMainActivity extends AppCompatActivity {
         navDrawer();
 
         directorArrayLIst=new ArrayList<>();
-        directorAdminClass=new DirectorAdminClass("dir@gmail.com","1212","Abir","squareldld");
-        directorArrayLIst.add(directorAdminClass);
-        directorArrayLIst.add(directorAdminClass);
-        directorArrayLIst.add(directorAdminClass);
-        directorArrayLIst.add(directorAdminClass);
+
+        fStore.collection("Admin")
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+                                directorAdminClass=new DirectorAdminClass(document.getString("Email"),document.getString("Uid"),document.getString("Name"),document.getString("HID"));
+                                directorArrayLIst.add(directorAdminClass);
+                            }
+                            adminAdapter.notifyDataSetChanged();
+                        } else {
+                            //Log.w(TAG, "Error getting documents.", task.getException());
+                            Toast.makeText(AdminMainActivity.this,"Unable to fetch data",Toast.LENGTH_LONG).show();
+                        }
+                    }
+                });
+
+
 
         recyclerView = findViewById(R.id.adminRV);
         linearLayoutManager = new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false);
