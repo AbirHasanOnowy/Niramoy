@@ -1,11 +1,15 @@
 package com.example.niramoy;
 
 import androidx.annotation.NonNull;
+import com.example.niramoy.adapters.AdminAdapter;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,6 +19,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.niramoy.classes.DirectorAdminClass;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
@@ -24,6 +29,7 @@ import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 
+import java.util.ArrayList;
 import java.util.Objects;
 
 public class AdminMainActivity extends AppCompatActivity {
@@ -32,19 +38,25 @@ public class AdminMainActivity extends AppCompatActivity {
     NavigationView navigationView;
     ActionBarDrawerToggle toggle;
     TextView navNameTextView,navPositionTextView;
+
+    RecyclerView recyclerView;
+    ArrayList<DirectorAdminClass> directorArrayLIst;
+    AdminAdapter adminAdapter;
+    private LinearLayoutManager linearLayoutManager;
+    DirectorAdminClass directorAdminClass;
+
     ImageView imageMenu;
     String uid,position,name,hid,email,dept,education,gender,birthday,password;
-
     private FirebaseAuth fAuth;
     private FirebaseFirestore fStore;
     private DocumentReference uidref;
-
     private static final String KEY_POS = "Position";
     private static final String KEY_NAME = "Name";
     private static final String KEY_EMAIL = "Email";
     private static final String KEY_PASS = "Password";
     private static final String KEY_GENDER = "Gender";
     private static final String KEY_DOB = "DoB";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,6 +71,19 @@ public class AdminMainActivity extends AppCompatActivity {
         navigationView = findViewById(R.id.nav_View);
         imageMenu = findViewById(R.id.imageMenu);
         navDrawer();
+
+        directorArrayLIst=new ArrayList<>();
+        directorAdminClass=new DirectorAdminClass("dir@gmail.com","1212","Abir","squareldld");
+        directorArrayLIst.add(directorAdminClass);
+        directorArrayLIst.add(directorAdminClass);
+        directorArrayLIst.add(directorAdminClass);
+        directorArrayLIst.add(directorAdminClass);
+
+        recyclerView = findViewById(R.id.adminRV);
+        linearLayoutManager = new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false);
+        adminAdapter = new AdminAdapter(AdminMainActivity.this, ContextCompat.getColor(this, R.color.colorPrimary), ContextCompat.getColor(this, R.color.teal_200), directorArrayLIst);
+        recyclerView.setLayoutManager(linearLayoutManager);
+        recyclerView.setAdapter(adminAdapter);
 
         uid = Objects.requireNonNull(fAuth.getCurrentUser()).getUid();
         uidref = fStore.collection("UID").document(uid);
