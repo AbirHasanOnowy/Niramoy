@@ -55,6 +55,30 @@ public class AdminAdapter extends RecyclerView.Adapter<AdminAdapter.AdminViewHol
         holder.directorEmailTV.setText(dir);
         dir=directorAdminClass.getHospitalID();
         holder.hospitalIdTV.setText(dir);
+
+        holder.acceptButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mCustomClickListener != null) {
+                    //int position = holder.getAdapterPosition();
+                    if (position != RecyclerView.NO_POSITION) {
+                        mCustomClickListener.onAcceptClick(position);
+                    }
+                }
+            }
+        });
+        holder.deleteButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mCustomClickListener != null) {
+                    //int position = holder.getAdapterPosition();
+                    if (position != RecyclerView.NO_POSITION) {
+                        mCustomClickListener.onDeleteClick(position);
+                    }
+                }
+
+            }
+        });
 //        if(!directorArray.isEmpty())
 //        {
 //
@@ -101,6 +125,7 @@ public class AdminAdapter extends RecyclerView.Adapter<AdminAdapter.AdminViewHol
         CardView containerCardView;
         TextView hospitalIdTV, directorNameTV;
         ImageView directorProfilePicIV;
+        ImageView deleteButton,acceptButton;
 
         public AdminViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -111,6 +136,8 @@ public class AdminAdapter extends RecyclerView.Adapter<AdminAdapter.AdminViewHol
           //  containerCardView=itemView.findViewById(R.id.llContainerCardView);
             hospitalIdTV=itemView.findViewById(R.id.hospitalIdTV);
             directorNameTV=itemView.findViewById(R.id.directorNameTV);
+            deleteButton=itemView.findViewById(R.id.deleteButtonAdmin);
+            acceptButton=itemView.findViewById(R.id.acceptButtonAdmin);
 
             itemView.setOnClickListener(this);
             itemView.setOnLongClickListener(this);

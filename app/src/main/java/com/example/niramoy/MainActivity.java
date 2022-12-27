@@ -5,6 +5,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -21,6 +22,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
+import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -38,13 +40,15 @@ public class MainActivity extends AppCompatActivity {
     TextView navNameTextView,navPositionTextView;
     FloatingActionButton addButton, addTestButton, addPatientButton,addPrescriptionButton;
     Boolean isVis;
-    String uid,position,name,hid,email,dept,education,gender,birthday,password;
+    String uid,position,name,hid,email,dept,education,gender,birthday,password,pname,pid,pgen,pbir,pimglink;
     LinearLayout layoutProfile;
-    TextView seeTest, seePrescriptions;
+    TextView seeTest, seePrescriptions,tPid,tPgen,tPbir,tPname;
+    TextInputLayout layoutsearch;
+    EditText ePid;
 
     private FirebaseAuth fAuth;
     private FirebaseFirestore fStore;
-    private DocumentReference uidref;
+    private DocumentReference uidref,patientRef;
 
     private static final String KEY_HID = "HID";
     private static final String KEY_POS = "Position";
@@ -58,6 +62,12 @@ public class MainActivity extends AppCompatActivity {
     private static final String KEY_VERIFY = "Verified";
     private static final String KEY_UID = "Uid";
 
+    private static final String KEY_PID = "PID";
+    private static final String KEY_PNAME = "Name";
+    private static final String KEY_PGENDER = "Gender";
+    private static final String KEY_PDOB = "DoB";
+    private static final String KEY_URL = "ImageUrl";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,6 +78,12 @@ public class MainActivity extends AppCompatActivity {
         addPrescriptionButton=findViewById(R.id.addPrescriptionButton);
         seeTest=findViewById(R.id.seeTestsTV);
         seePrescriptions=findViewById(R.id.seePrescriptionsTV);
+        tPid = findViewById(R.id.patientIdTV);
+        tPgen = findViewById(R.id.patientGenderTV);
+        tPbir = findViewById(R.id.patientBirthdateTV);
+        tPname = findViewById(R.id.patientNameTV);
+        layoutsearch = findViewById(R.id.searchETLayout);
+        ePid = findViewById(R.id.patientSearchById);
 
         fAuth = FirebaseAuth.getInstance();
         fStore = FirebaseFirestore.getInstance();
@@ -93,17 +109,57 @@ public class MainActivity extends AppCompatActivity {
                 birthday =  value.getString(KEY_DOB);
             }
         });
+
+        layoutsearch.setEndIconOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                pid = ePid.getText().toString();
+                if(pid == null) {
+                    Toast.makeText(MainActivity.this,"Enter PAtient Id to search patient",Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                patientRef = fStore.collection("Patients").document(pid);
+                patientRef.addSnapshotListener(MainActivity.this, new EventListener<DocumentSnapshot>() {
+                    @Override
+                    public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
+                        pname = value.getString(KEY_PNAME);
+                        if(pname == null) {
+                            Toast.makeText(MainActivity.this,"Invalid Patient Id",Toast.LENGTH_SHORT).show();
+
+                        } else {
+                            pbir = value.getString(KEY_PDOB);
+                            pgen = value.getString(KEY_PGENDER);
+                            pimglink = value.getString(KEY_URL);
+                            tPid.setText(pid);
+                            tPname.setText(pname);
+                            tPgen.setText(pgen);
+                            tPbir.setText(pbir);
+                        }
+                    }
+                });
+            }
+        });
         seeTest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(pname == null) {
+                    Toast.makeText(MainActivity.this,"Enter Patient Id and Search patient first",Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 Intent intent = new Intent(MainActivity.this,ShowTestsActivity.class);
+                intent.putExtra(KEY_PID,pid);
                 startActivity(intent);
             }
         });
         seePrescriptions.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(pname == null) {
+                    Toast.makeText(MainActivity.this,"Enter Patient Id and Search patient first",Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 Intent intent = new Intent(MainActivity.this,ShowPrescriptionsActivity.class);
+                intent.putExtra(KEY_PID,pid);
                 startActivity(intent);
             }
         });

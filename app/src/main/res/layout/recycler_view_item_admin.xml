@@ -102,20 +102,22 @@
             </LinearLayout>
 
             <ImageView
+                android:id="@+id/deleteButtonAdmin"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:layout_marginRight="8dp"
-                android:layout_marginTop="8dp"
                 android:layout_alignParentRight="true"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="8dp"
                 android:src="@drawable/ic_baseline_delete_24" />
 
             <ImageView
+                android:id="@+id/acceptButtonAdmin"
                 android:layout_width="24dp"
-                android:layout_marginRight="8dp"
-                android:layout_marginBottom="8dp"
                 android:layout_height="24dp"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentBottom="true"
+                android:layout_marginRight="8dp"
+                android:layout_marginBottom="8dp"
                 android:src="@drawable/ic_baseline_check_box_24" />
         </RelativeLayout>
     </androidx.cardview.widget.CardView>

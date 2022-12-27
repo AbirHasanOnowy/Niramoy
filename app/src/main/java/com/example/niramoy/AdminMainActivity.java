@@ -20,6 +20,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.niramoy.classes.DirectorAdminClass;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
@@ -34,6 +35,8 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
 public class AdminMainActivity extends AppCompatActivity {
@@ -53,13 +56,15 @@ public class AdminMainActivity extends AppCompatActivity {
     String uid,position,name,hid,email,dept,education,gender,birthday,password;
     private FirebaseAuth fAuth;
     private FirebaseFirestore fStore;
-    private DocumentReference uidref;
+    private DocumentReference uidref,dirUidRef;
     private static final String KEY_POS = "Position";
     private static final String KEY_NAME = "Name";
     private static final String KEY_EMAIL = "Email";
     private static final String KEY_PASS = "Password";
     private static final String KEY_GENDER = "Gender";
     private static final String KEY_DOB = "DoB";
+    private static final String KEY_VERIFY = "Verified";
+    private static final String KEY_UID = "Uid";
 
 
     @Override
@@ -116,11 +121,40 @@ public class AdminMainActivity extends AppCompatActivity {
 
             @Override
             public void onAcceptClick(int position) {
+                DirectorAdminClass data = directorArrayLIst.get(position);
 
+                dirUidRef = fStore.collection("UID").document(data.getDirectorId());
+                Map<String, Object> ver = new HashMap<>();
+                ver.put(KEY_VERIFY,"Yes");
+                dirUidRef.update(ver).addOnSuccessListener( new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void unused) {
+                        Toast.makeText(AdminMainActivity.this,"Director Successfully Assigned",Toast.LENGTH_LONG).show();
+                    }
+                });
+
+                dirUidRef = fStore.collection("Hospitals")
+                        .document(data.getHospitalID()).collection("Director").document(data.getDirectorId());
+                ver.put(KEY_UID,data.getDirectorId());
+                dirUidRef.set(ver);
+                fStore.collection("Admin").document(data.getDirectorId()).delete();
+                adminAdapter.notifyItemRemoved(position);
+                adminAdapter.notifyDataSetChanged();
             }
 
             @Override
             public void onDeleteClick(int position) {
+                DirectorAdminClass data = directorArrayLIst.get(position);
+                fStore.collection("Admin").document(data.getDirectorId()).delete();
+                adminAdapter.notifyItemRemoved(position);
+                adminAdapter.notifyDataSetChanged();
+                fStore.collection("UID").document(data.getDirectorId()).delete().addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void unused) {
+                        Toast.makeText(AdminMainActivity.this,"Director Successfully Deleted",Toast.LENGTH_LONG).show();
+
+                    }
+                });
 
             }
         });
@@ -160,7 +194,10 @@ public class AdminMainActivity extends AppCompatActivity {
                 switch (item.getItemId()) {
                     case R.id.logOutButton:
                         Toast.makeText(AdminMainActivity.this,"Log out", Toast.LENGTH_SHORT).show();
+                        fAuth.signOut();
+                        startActivity(new Intent(AdminMainActivity.this,SignInActivity.class));
                         drawerLayout.closeDrawers();
+                        finish();
                         break;
 
                     case R.id.policyButton:
