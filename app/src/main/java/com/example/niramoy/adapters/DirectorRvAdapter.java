@@ -107,8 +107,9 @@ public class DirectorRvAdapter extends RecyclerView.Adapter<DirectorRvAdapter.Ad
 //            roomNameTextView = itemView.findViewById(R.id.tvRoomName);
 //            containerCardView = itemView.findViewById(R.id.llContainerCardView);
 //            roomRatingTextView = itemView.findViewById(R.id.tvRoomRating);
-            employeeEmailTV=itemView.findViewById(R.id.empEmailTV);
             //  containerCardView=itemView.findViewById(R.id.llContainerCardView);
+            employeeEmailTV=itemView.findViewById(R.id.empEmailTV);
+
             hospitalIdTV=itemView.findViewById(R.id.hospitalIdTV);
             empNameTV=itemView.findViewById(R.id.empNameTV);
             empPos=itemView.findViewById(R.id.empPositionTV);

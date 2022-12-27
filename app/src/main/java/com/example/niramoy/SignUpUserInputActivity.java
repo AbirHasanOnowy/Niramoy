@@ -171,15 +171,6 @@ public class SignUpUserInputActivity extends AppCompatActivity {
                                if(task.isSuccessful()) {
                                    uid = Objects.requireNonNull(fAuth.getCurrentUser()).getUid();
                                    dbReference = fStore.collection("UID").document(uid);
-//                                   Task<QuerySnapshot> users = fStore.collection("UID").get();
-//                                   users.addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
-//                                       @Override
-//                                       public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
-//                                          List<DocumentSnapshot> docs = queryDocumentSnapshots.getDocuments();
-//                                          docs.forEach();
-//                                       }
-//                                   })
-
 
                                    Map<String,Object> val = new HashMap<>();
                                    val.put(KEY_HID,hid);

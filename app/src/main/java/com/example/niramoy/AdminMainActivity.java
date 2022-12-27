@@ -53,7 +53,7 @@ public class AdminMainActivity extends AppCompatActivity {
     String uid,position,name,hid,email,dept,education,gender,birthday,password;
     private FirebaseAuth fAuth;
     private FirebaseFirestore fStore;
-    private DocumentReference uidref,dirRef;
+    private DocumentReference uidref;
     private static final String KEY_POS = "Position";
     private static final String KEY_NAME = "Name";
     private static final String KEY_EMAIL = "Email";
