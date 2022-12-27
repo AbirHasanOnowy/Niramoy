@@ -12,50 +12,64 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.niramoy.R;
 import com.example.niramoy.classes.DirectorMainClass;
+import com.example.niramoy.classes.PrescriptionClass;
 
 import java.util.ArrayList;
 
-public class DirectorRvAdapter extends RecyclerView.Adapter<DirectorRvAdapter.AdminViewHolder> {
-    private static AdminAdapter.CustomClickListener mCustomClickListener;
-    private final ArrayList<DirectorMainClass> directorArray;
-    private DirectorMainClass directorAdminClass;
+public class PrescriptionAdapter extends RecyclerView.Adapter<PrescriptionAdapter.AdminViewHolder> {
+    private static PrescriptionAdapter.CustomClickListener mCustomClickListener;
+    private final ArrayList<PrescriptionClass> prescriptionClassArray;
+    private PrescriptionClass directorAdminClass;
     private  String dir;
     private final Context mContext;
     private final int bookedColor;
     private final int unBookedColor;
 
     //constructor
-    public DirectorRvAdapter(Context context, int bookedColor, int unbookedColor, ArrayList<DirectorMainClass> directorAdminClassArrayList) {
-        this.directorArray = directorAdminClassArrayList;
+    public PrescriptionAdapter(Context context, int bookedColor, int unbookedColor, ArrayList<PrescriptionClass> directorAdminClassArrayList) {
+        this.prescriptionClassArray = directorAdminClassArrayList;
         this.mContext = context;
         this.bookedColor = bookedColor;
         this.unBookedColor = unbookedColor;
     }
 
-    public void setCustomClickListener(AdminAdapter.CustomClickListener customClickListener) //called from mainactivity
+    public void setCustomClickListener(PrescriptionAdapter.CustomClickListener customClickListener) //called from mainactivity
     {
         mCustomClickListener = customClickListener; //setting data
     }
 
     @NonNull
     @Override
-    public DirectorRvAdapter.AdminViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {  //an object of roomview holder which contain itemview
-        View view = LayoutInflater.from(mContext).inflate(R.layout.recyclerview_item_director, parent, false);
-        return new DirectorRvAdapter.AdminViewHolder(view); //passed in itemview
+    public PrescriptionAdapter.AdminViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {  //an object of roomview holder which contain itemview
+        View view = LayoutInflater.from(mContext).inflate(R.layout.recyclerview_prescription, parent, false);
+        return new PrescriptionAdapter.AdminViewHolder(view); //passed in itemview
 
     }
 
+
     @Override
-    public void onBindViewHolder(@NonNull DirectorRvAdapter.AdminViewHolder holder, int position) {
-        directorAdminClass = directorArray.get(position);
-        dir=directorAdminClass.getEmployeeName();
-        holder.empNameTV.setText(dir);
-        dir=directorAdminClass.getEmployeeEmail();
-        holder.employeeEmailTV.setText(dir);
+    public void onBindViewHolder(@NonNull PrescriptionAdapter.AdminViewHolder holder, int position) {
+        directorAdminClass = prescriptionClassArray.get(position);
+        //dir=directorAdminClass.getEmployeeName();
+        dir=directorAdminClass.getPatientId();
+        holder.patientIdTV.setText(dir);
+        dir=directorAdminClass.getDoctorName();
+        holder.doctorNameTV.setText(dir);
+        dir=directorAdminClass.getDoctorSpecs();
+        holder.doctorSpecsTV.setText(dir);
+        dir=directorAdminClass.getAge();
+        holder.ageTV.setText(dir);
         dir=directorAdminClass.getHospitalID();
         holder.hospitalIdTV.setText(dir);
-        dir=directorAdminClass.getEmployeePosition();
-        holder.empPos.setText(dir);
+        dir=directorAdminClass.getMedicines();
+        holder.medicinesTV.setText(dir);
+        dir=directorAdminClass.getSymptoms();
+        holder.symptomsTV.setText(dir);
+        dir=directorAdminClass.getRecommendations();
+        holder.recommendationsTV.setText(dir);
+        dir=directorAdminClass.getDateAndTime();
+        holder.dateAndTimeTV.setText(dir);
+
 //        if(!directorArray.isEmpty())
 //        {
 //
@@ -84,7 +98,7 @@ public class DirectorRvAdapter extends RecyclerView.Adapter<DirectorRvAdapter.Ad
 
     @Override
     public int getItemCount() {
-        return directorArray.size();
+        return prescriptionClassArray.size();
     }
 
     public interface CustomClickListener {
@@ -95,9 +109,9 @@ public class DirectorRvAdapter extends RecyclerView.Adapter<DirectorRvAdapter.Ad
     }
 
     public class AdminViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
-        TextView employeeEmailTV, empPos;
+
         CardView containerCardView;
-        TextView hospitalIdTV, empNameTV;
+        TextView patientIdTV, doctorNameTV, doctorSpecsTV, ageTV, hospitalIdTV, medicinesTV,symptomsTV,recommendationsTV,dateAndTimeTV;
         //ImageView directorProfilePicIV;
 
         public AdminViewHolder(@NonNull View itemView) {
@@ -105,11 +119,16 @@ public class DirectorRvAdapter extends RecyclerView.Adapter<DirectorRvAdapter.Ad
 //            roomNameTextView = itemView.findViewById(R.id.tvRoomName);
 //            containerCardView = itemView.findViewById(R.id.llContainerCardView);
 //            roomRatingTextView = itemView.findViewById(R.id.tvRoomRating);
-            employeeEmailTV=itemView.findViewById(R.id.empEmailTV);
-            //  containerCardView=itemView.findViewById(R.id.llContainerCardView);
+            patientIdTV=itemView.findViewById(R.id.patientIdTV);
+            doctorNameTV=itemView.findViewById(R.id.doctorNameTV);
+            doctorSpecsTV=itemView.findViewById(R.id.doctorSpecsTV);
+            ageTV=itemView.findViewById(R.id.ageTV);
             hospitalIdTV=itemView.findViewById(R.id.hospitalIdTV);
-            empNameTV=itemView.findViewById(R.id.empNameTV);
-            empPos=itemView.findViewById(R.id.empPositionTV);
+            medicinesTV=itemView.findViewById(R.id.medicinesTV);
+            symptomsTV=itemView.findViewById(R.id.symptomsTV);
+            recommendationsTV=itemView.findViewById(R.id.recommendationsTV);
+            dateAndTimeTV=itemView.findViewById(R.id.dateAndTimeTV);
+
 
             itemView.setOnClickListener(this);
             itemView.setOnLongClickListener(this);
