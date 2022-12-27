@@ -90,7 +90,7 @@ public class DirectorMainActivity extends AppCompatActivity {
 
 
 
-        adminAdapter.setCustomClickListener(new AdminAdapter.CustomClickListener() {
+        adminAdapter.setCustomClickListener(new DirectorRvAdapter.CustomClickListener() {
             @Override
             public void customOnClick(int position, View v) {
                 Intent intent = new Intent(DirectorMainActivity.this,DirectorShowDetailsActivity.class);

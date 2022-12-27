@@ -16,7 +16,7 @@ import com.example.niramoy.classes.PrescriptionClass;
 
 import java.util.ArrayList;
 
-public class PrescriptionAdapter extends RecyclerView.Adapter<PrescriptionAdapter.AdminViewHolder> {
+public class PrescriptionAdapter extends RecyclerView.Adapter<PrescriptionAdapter.PrescriptionViewHolder> {
     private static PrescriptionAdapter.CustomClickListener mCustomClickListener;
     private final ArrayList<PrescriptionClass> prescriptionClassArray;
     private PrescriptionClass directorAdminClass;
@@ -40,15 +40,15 @@ public class PrescriptionAdapter extends RecyclerView.Adapter<PrescriptionAdapte
 
     @NonNull
     @Override
-    public PrescriptionAdapter.AdminViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {  //an object of roomview holder which contain itemview
+    public PrescriptionAdapter.PrescriptionViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {  //an object of roomview holder which contain itemview
         View view = LayoutInflater.from(mContext).inflate(R.layout.recyclerview_prescription, parent, false);
-        return new PrescriptionAdapter.AdminViewHolder(view); //passed in itemview
+        return new PrescriptionAdapter.PrescriptionViewHolder(view); //passed in itemview
 
     }
 
 
     @Override
-    public void onBindViewHolder(@NonNull PrescriptionAdapter.AdminViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull PrescriptionAdapter.PrescriptionViewHolder holder, int position) {
         directorAdminClass = prescriptionClassArray.get(position);
         //dir=directorAdminClass.getEmployeeName();
         dir=directorAdminClass.getPatientId();
@@ -108,13 +108,13 @@ public class PrescriptionAdapter extends RecyclerView.Adapter<PrescriptionAdapte
         //declaring method which will provide to main activity //position and view will also be provided
     }
 
-    public class AdminViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
+    public class PrescriptionViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
 
         CardView containerCardView;
         TextView patientIdTV, doctorNameTV, doctorSpecsTV, ageTV, hospitalIdTV, medicinesTV,symptomsTV,recommendationsTV,dateAndTimeTV;
         //ImageView directorProfilePicIV;
 
-        public AdminViewHolder(@NonNull View itemView) {
+        public PrescriptionViewHolder(@NonNull View itemView) {
             super(itemView);
 //            roomNameTextView = itemView.findViewById(R.id.tvRoomName);
 //            containerCardView = itemView.findViewById(R.id.llContainerCardView);

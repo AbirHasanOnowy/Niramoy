@@ -103,6 +103,27 @@ public class AdminMainActivity extends AppCompatActivity {
         adminAdapter = new AdminAdapter(AdminMainActivity.this, ContextCompat.getColor(this, R.color.colorPrimary), ContextCompat.getColor(this, R.color.teal_200), directorArrayLIst);
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setAdapter(adminAdapter);
+        adminAdapter.setCustomClickListener(new AdminAdapter.CustomClickListener() {
+            @Override
+            public void customOnClick(int position, View v) {
+
+            }
+
+            @Override
+            public void customOnLongClick(int position, View v) {
+
+            }
+
+            @Override
+            public void onAcceptClick(int position) {
+
+            }
+
+            @Override
+            public void onDeleteClick(int position) {
+
+            }
+        });
 
         uid = Objects.requireNonNull(fAuth.getCurrentUser()).getUid();
         uidref = fStore.collection("UID").document(uid);

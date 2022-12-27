@@ -8,8 +8,9 @@
     tools:context=".ShowPrescriptionsActivity">
 
     <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_width="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:layout_height="wrap_content">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -22,14 +23,13 @@
                 android:id="@+id/prescriptionListTV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Enter Patient : "
+                android:text="Prescription List: "
                 android:textColor="@color/black"
                 android:textSize="24sp" />
 
             <androidx.recyclerview.widget.RecyclerView
-                android:layout_width="match_parent"
-                android:layout_marginTop="16dp"
                 android:id="@+id/rvShowPres"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/prescriptionListTV">
 

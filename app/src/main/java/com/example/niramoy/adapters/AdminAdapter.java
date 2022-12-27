@@ -90,6 +90,9 @@ public class AdminAdapter extends RecyclerView.Adapter<AdminAdapter.AdminViewHol
         void customOnClick(int position, View v);
 
         void customOnLongClick(int position, View v);
+        void onAcceptClick(int position);
+
+        void onDeleteClick(int position);
         //declaring method which will provide to main activity //position and view will also be provided
     }
 
