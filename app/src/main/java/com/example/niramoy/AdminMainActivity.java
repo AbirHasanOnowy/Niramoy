@@ -73,7 +73,7 @@ public class AdminMainActivity extends AppCompatActivity {
         navDrawer();
 
         directorArrayLIst=new ArrayList<>();
-        directorAdminClass=new DirectorAdminClass("dir@gmail.com","1212","abir","squareldld");
+        directorAdminClass=new DirectorAdminClass("dir@gmail.com","1212","Abir","squareldld");
         directorArrayLIst.add(directorAdminClass);
         directorArrayLIst.add(directorAdminClass);
         directorArrayLIst.add(directorAdminClass);

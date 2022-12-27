@@ -71,7 +71,7 @@
                     <TextView
                         android:id="@+id/directorNameTV"
                         android:layout_width="match_parent"
-                        android:layout_height="11dp"
+                        android:layout_height="wrap_content"
                         android:text="Rafi"
                         android:textColor="@color/black"
                         android:textSize="18sp" />
