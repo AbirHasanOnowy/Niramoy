@@ -14,7 +14,6 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.datepicker.MaterialDatePicker;
@@ -22,16 +21,13 @@ import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-public class SignUpDoctorActivity extends AppCompatActivity {
+public class SignUpUserInputActivity extends AppCompatActivity {
 
     String[] genderList = {"Male","Female","Others"};
     AutoCompleteTextView genderAutoCompleteTextView;
@@ -164,7 +160,7 @@ public class SignUpDoctorActivity extends AppCompatActivity {
                 }
 
                 if(Objects.equals(Birthdate, "")) {
-                    Toast.makeText(SignUpDoctorActivity.this,"Select Birthdate",Toast.LENGTH_LONG).show();
+                    Toast.makeText(SignUpUserInputActivity.this,"Select Birthdate",Toast.LENGTH_LONG).show();
                     return;
                 }
 
@@ -209,16 +205,17 @@ public class SignUpDoctorActivity extends AppCompatActivity {
                                                    dir.put(KEY_NAME,name);
                                                    dir.put(KEY_UID, uid);
                                                    dir.put(KEY_HID, hid);
+                                                   dir.put(KEY_EMAIL,email);
 
                                                    adminRef.set(dir).addOnCompleteListener(new OnCompleteListener<Void>() {
                                                        @Override
                                                        public void onComplete(@NonNull Task<Void> task) {
                                                            if (task.isSuccessful()) {
-                                                               Toast.makeText(SignUpDoctorActivity.this, "SignUp complete. Data sent to Admin for validation", Toast.LENGTH_LONG).show();
-                                                               startActivity(new Intent(SignUpDoctorActivity.this, SignInActivity.class));
+                                                               Toast.makeText(SignUpUserInputActivity.this, "SignUp complete. Data sent to Admin for validation", Toast.LENGTH_LONG).show();
+                                                               startActivity(new Intent(SignUpUserInputActivity.this, SignInActivity.class));
                                                                finish();
                                                            } else {
-                                                               Toast.makeText(SignUpDoctorActivity.this, "Failed to Complete Request", Toast.LENGTH_LONG).show();
+                                                               Toast.makeText(SignUpUserInputActivity.this, "Failed to Complete Request", Toast.LENGTH_LONG).show();
                                                            }
                                                        }
                                                    });
@@ -233,23 +230,23 @@ public class SignUpDoctorActivity extends AppCompatActivity {
                                                        @Override
                                                        public void onComplete(@NonNull Task<Void> task) {
                                                            if (task.isSuccessful()) {
-                                                               Toast.makeText(SignUpDoctorActivity.this, "SignUp complete. Data sent for Director for validation", Toast.LENGTH_LONG).show();
-                                                               startActivity(new Intent(SignUpDoctorActivity.this, SignInActivity.class));
+                                                               Toast.makeText(SignUpUserInputActivity.this, "SignUp complete. Data sent for Director for validation", Toast.LENGTH_LONG).show();
+                                                               startActivity(new Intent(SignUpUserInputActivity.this, SignInActivity.class));
                                                                finish();
                                                            } else {
-                                                               Toast.makeText(SignUpDoctorActivity.this, "Failed to Complete Request", Toast.LENGTH_LONG).show();
+                                                               Toast.makeText(SignUpUserInputActivity.this, "Failed to Complete Request", Toast.LENGTH_LONG).show();
                                                            }
                                                        }
                                                    });
                                                }
 
                                            } else {
-                                               Toast.makeText(SignUpDoctorActivity.this,"Failed to Complete Request", Toast.LENGTH_LONG).show();
+                                               Toast.makeText(SignUpUserInputActivity.this,"Failed to Complete Request", Toast.LENGTH_LONG).show();
                                            }
                                        }
                                    });
                                } else {
-                                   Toast.makeText(SignUpDoctorActivity.this,"Unable to create id. Please try again",Toast.LENGTH_LONG).show();
+                                   Toast.makeText(SignUpUserInputActivity.this,"Unable to create id. Please try again",Toast.LENGTH_LONG).show();
                                }
                            }
                        });

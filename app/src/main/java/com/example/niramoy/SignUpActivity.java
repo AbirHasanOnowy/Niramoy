@@ -81,7 +81,7 @@ public class SignUpActivity extends AppCompatActivity {
 
                 if(Objects.equals(Position, "Director"))
                 {
-                    Intent intent = new Intent(SignUpActivity.this,SignUpDoctorActivity.class);
+                    Intent intent = new Intent(SignUpActivity.this, SignUpUserInputActivity.class);
                     intent.putExtra("HID",HID);
                     intent.putExtra("Position",Position);
                     startActivity(intent);
@@ -95,7 +95,7 @@ public class SignUpActivity extends AppCompatActivity {
                         String val = value.getString(KEY_ASSIGN);
 
                         if(Objects.equals(val, "Yes")) {
-                            Intent intent = new Intent(SignUpActivity.this,SignUpDoctorActivity.class);
+                            Intent intent = new Intent(SignUpActivity.this, SignUpUserInputActivity.class);
                             intent.putExtra("HID",HID);
                             intent.putExtra("Position",Position);
                             startActivity(intent);
