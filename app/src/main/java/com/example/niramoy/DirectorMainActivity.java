@@ -4,9 +4,13 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -14,6 +18,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.niramoy.adapters.AdminAdapter;
+import com.example.niramoy.adapters.DirectorRvAdapter;
+import com.example.niramoy.classes.DirectorAdminClass;
+import com.example.niramoy.classes.DirectorMainClass;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
@@ -22,6 +30,7 @@ import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 
+import java.util.ArrayList;
 import java.util.Objects;
 
 public class DirectorMainActivity extends AppCompatActivity {
@@ -31,6 +40,12 @@ public class DirectorMainActivity extends AppCompatActivity {
     ImageView imageMenu;
     TextView navNameTextView,navPositionTextView;
     String uid,position,name,hid,email,dept,education,gender,birthday,password;
+
+    RecyclerView recyclerView;
+    ArrayList<DirectorMainClass> directorArrayLIst;
+    DirectorRvAdapter adminAdapter;
+    private LinearLayoutManager linearLayoutManager;
+    DirectorMainClass directorAdminClass;
 
     private FirebaseAuth fAuth;
     private FirebaseFirestore fStore;
@@ -60,6 +75,33 @@ public class DirectorMainActivity extends AppCompatActivity {
         navigationView = findViewById(R.id.nav_View);
         imageMenu = findViewById(R.id.imageMenu);
         navDrawer();
+
+        directorArrayLIst=new ArrayList<>();
+        directorAdminClass=new DirectorMainClass("dir@gmail.com","1212","Abir","Doctor","squareldld");
+        directorArrayLIst.add(directorAdminClass);
+        directorArrayLIst.add(directorAdminClass);
+        directorArrayLIst.add(directorAdminClass);
+        directorArrayLIst.add(directorAdminClass);
+        recyclerView = findViewById(R.id.directorRV);
+        linearLayoutManager = new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false);
+        adminAdapter = new DirectorRvAdapter(DirectorMainActivity.this, ContextCompat.getColor(this, R.color.colorPrimary), ContextCompat.getColor(this, R.color.teal_200), directorArrayLIst);
+        recyclerView.setLayoutManager(linearLayoutManager);
+        recyclerView.setAdapter(adminAdapter);
+
+
+
+        adminAdapter.setCustomClickListener(new AdminAdapter.CustomClickListener() {
+            @Override
+            public void customOnClick(int position, View v) {
+                Intent intent = new Intent(DirectorMainActivity.this,DirectorShowDetailsActivity.class);
+                startActivity(intent);
+            }
+
+            @Override
+            public void customOnLongClick(int position, View v) {
+
+            }
+        });
 
         uid = Objects.requireNonNull(fAuth.getCurrentUser()).getUid();
         uidref = fStore.collection("UID").document(uid);
