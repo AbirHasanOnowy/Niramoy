@@ -40,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
     Boolean isVis;
     String uid,position,name,hid,email,dept,education,gender,birthday,password;
     LinearLayout layoutProfile;
+    TextView seeTest, seePrescriptions;
 
     private FirebaseAuth fAuth;
     private FirebaseFirestore fStore;
@@ -65,7 +66,8 @@ public class MainActivity extends AppCompatActivity {
         addTestButton = findViewById(R.id.addTestButton);
         addPatientButton = findViewById(R.id.addPatientButton);
         addPrescriptionButton=findViewById(R.id.addPrescriptionButton);
-
+        seeTest=findViewById(R.id.seeTestsTV);
+        seePrescriptions=findViewById(R.id.seePrescriptionsTV);
 
         fAuth = FirebaseAuth.getInstance();
         fStore = FirebaseFirestore.getInstance();
@@ -89,6 +91,20 @@ public class MainActivity extends AppCompatActivity {
                 education = value.getString(KEY_EDU);
                 gender = value.getString(KEY_GENDER);
                 birthday =  value.getString(KEY_DOB);
+            }
+        });
+        seeTest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this,ShowTestsActivity.class);
+                startActivity(intent);
+            }
+        });
+        seePrescriptions.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this,ShowPrescriptionsActivity.class);
+                startActivity(intent);
             }
         });
 

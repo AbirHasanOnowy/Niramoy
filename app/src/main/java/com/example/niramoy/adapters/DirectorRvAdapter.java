@@ -4,7 +4,6 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -12,13 +11,12 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.niramoy.R;
-import com.example.niramoy.classes.DirectorAdminClass;
 import com.example.niramoy.classes.DirectorMainClass;
 
 import java.util.ArrayList;
 
-public class DirectorRvAdapter extends RecyclerView.Adapter<DirectorRvAdapter.AdminViewHolder> {
-    private static AdminAdapter.CustomClickListener mCustomClickListener;
+public class DirectorRvAdapter extends RecyclerView.Adapter<DirectorRvAdapter.DirectorViewHolder> {
+    private static DirectorRvAdapter.CustomClickListener mCustomClickListener;
     private final ArrayList<DirectorMainClass> directorArray;
     private DirectorMainClass directorAdminClass;
     private  String dir;
@@ -34,21 +32,21 @@ public class DirectorRvAdapter extends RecyclerView.Adapter<DirectorRvAdapter.Ad
         this.unBookedColor = unbookedColor;
     }
 
-    public void setCustomClickListener(AdminAdapter.CustomClickListener customClickListener) //called from mainactivity
+    public void setCustomClickListener(DirectorRvAdapter.CustomClickListener customClickListener) //called from mainactivity
     {
         mCustomClickListener = customClickListener; //setting data
     }
 
     @NonNull
     @Override
-    public DirectorRvAdapter.AdminViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {  //an object of roomview holder which contain itemview
-        View view = LayoutInflater.from(mContext).inflate(R.layout.director_recyclerview_item, parent, false);
-        return new DirectorRvAdapter.AdminViewHolder(view); //passed in itemview
+    public DirectorRvAdapter.DirectorViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {  //an object of roomview holder which contain itemview
+        View view = LayoutInflater.from(mContext).inflate(R.layout.recyclerview_item_director, parent, false);
+        return new DirectorRvAdapter.DirectorViewHolder(view); //passed in itemview
 
     }
 
     @Override
-    public void onBindViewHolder(@NonNull DirectorRvAdapter.AdminViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull DirectorRvAdapter.DirectorViewHolder holder, int position) {
         directorAdminClass = directorArray.get(position);
         dir=directorAdminClass.getEmployeeName();
         holder.empNameTV.setText(dir);
@@ -96,13 +94,13 @@ public class DirectorRvAdapter extends RecyclerView.Adapter<DirectorRvAdapter.Ad
         //declaring method which will provide to main activity //position and view will also be provided
     }
 
-    public class AdminViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
+    public class DirectorViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
         TextView employeeEmailTV, empPos;
         CardView containerCardView;
         TextView hospitalIdTV, empNameTV;
         //ImageView directorProfilePicIV;
 
-        public AdminViewHolder(@NonNull View itemView) {
+        public DirectorViewHolder(@NonNull View itemView) {
             super(itemView);
 //            roomNameTextView = itemView.findViewById(R.id.tvRoomName);
 //            containerCardView = itemView.findViewById(R.id.llContainerCardView);
