@@ -38,7 +38,7 @@
                 android:textColorHint="@color/black"
                 app:boxStrokeColor="@color/colorPrimary"
                 app:counterEnabled="true"
-                app:counterMaxLength="20"
+                app:counterMaxLength="9"
                 app:endIconMode="clear_text"
                 app:errorEnabled="true"
                 app:errorIconDrawable="@drawable/error"
@@ -51,7 +51,7 @@
                     android:id="@+id/presPatientIdET"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="text"
+                    android:inputType="number"
                     android:textColor="@color/black">
 
                 </EditText>
@@ -59,7 +59,7 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/patientName"
+                android:id="@+id/patientProblems"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -67,11 +67,11 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="20dp"
-                android:hint="Name"
+                android:hint="Problem/Disease Statement"
                 android:textColorHint="@color/black"
                 app:boxStrokeColor="@color/colorPrimary"
                 app:counterEnabled="true"
-                app:counterMaxLength="20"
+                app:counterMaxLength="40"
                 app:endIconMode="clear_text"
                 app:errorEnabled="true"
                 app:errorIconDrawable="@drawable/error"
@@ -81,10 +81,10 @@
                 app:startIconTint="@color/black">
 
                 <EditText
-                    android:id="@+id/patientNameET"
+                    android:id="@+id/patientProblemsET"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="text"
+                    android:inputType="textMultiLine"
                     android:textColor="@color/black" />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -93,7 +93,7 @@
                 android:id="@+id/ageGenLL"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/patientName"
+                android:layout_below="@id/patientProblems"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
                 android:orientation="horizontal">
@@ -103,14 +103,14 @@
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-
                     android:layout_marginTop="10dp"
-                    android:layout_marginEnd="5dp"
+                    android:layout_marginEnd="0dp"
                     android:layout_weight="1"
                     android:hint="Age"
                     android:textColorHint="@color/black"
                     app:boxStrokeColor="@color/colorPrimary"
                     app:counterEnabled="true"
+                    app:counterMaxLength="3"
                     app:endIconMode="clear_text"
                     app:errorEnabled="true"
                     app:errorIconDrawable="@drawable/error"
@@ -128,43 +128,21 @@
 
                 </com.google.android.material.textfield.TextInputLayout>
 
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/patientGender"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginEnd="5dp"
-                    android:layout_weight="1"
-                    android:hint="Gender"
-                    android:textColorHint="@color/black"
-                    app:boxStrokeColor="@color/colorPrimary"
-                    app:errorIconDrawable="@drawable/error"
-                    app:helperText="Required*"
-                    app:helperTextTextColor="@color/red"
-                    app:startIconDrawable="@drawable/ic_baseline_person_18"
-                    app:startIconTint="@color/black">
 
-                    <AutoCompleteTextView
-                        android:id="@+id/patientGenderET"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:inputType="none"
-                        android:textColor="@color/black" />
-
-                </com.google.android.material.textfield.TextInputLayout>
             </LinearLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/suggestedDrugs"
+                android:id="@+id/medicines"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/ageGenLL"
                 android:layout_marginStart="20dp"
+                app:counterEnabled="true"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="20dp"
-                android:hint="Drugs"
+                android:hint="Medicines"
+                app:counterMaxLength="200"
                 android:textColorHint="@color/black"
                 app:boxStrokeColor="@color/colorPrimary"
                 app:endIconMode="clear_text"
@@ -174,7 +152,7 @@
                 app:startIconTint="@color/black">
 
                 <EditText
-                    android:id="@+id/suggestedDrugsET"
+                    android:id="@+id/medicinesET"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textMultiLine"
@@ -185,15 +163,17 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/medication"
+                android:id="@+id/testAndRec"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/suggestedDrugs"
+                android:layout_below="@id/medicines"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="20dp"
-                android:hint="Medication"
+                app:counterEnabled="true"
+                app:counterMaxLength="200"
+                android:hint="Tests and Recommendations"
                 android:textColorHint="@color/black"
                 app:boxStrokeColor="@color/colorPrimary"
                 app:endIconMode="clear_text"
@@ -203,20 +183,20 @@
                 app:startIconTint="@color/black">
 
                 <EditText
-                    android:id="@+id/medicationET"
+                    android:id="@+id/testAndRecET"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textMultiLine"
                     android:maxLines="10"
-                    android:minLines="0"
+                    android:minLines="1"
                     android:textColor="@color/black" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/testSaveButton"
+                android:id="@+id/prescriptionSaveButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/medication"
+                android:layout_below="@id/testAndRec"
                 android:layout_centerHorizontal="true"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="30dp"

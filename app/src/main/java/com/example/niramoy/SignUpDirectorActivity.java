@@ -19,10 +19,10 @@ import java.util.Objects;
 public class SignUpDirectorActivity extends AppCompatActivity {
 
     String[] genderList = {"Male","Female","Others"};
-    AutoCompleteTextView genderAutoCompleteTextView,doctorAutoCompleteTextView;
-    ArrayAdapter<String> genderArrayAdapterItems,doctorArrayAdapterItems;
+    AutoCompleteTextView genderAutoCompleteTextView;
+    ArrayAdapter<String> genderArrayAdapterItems;
     EditText eUserName,eEmail,ePassword;
-    TextInputLayout layoutUserName,layoutEmail,layoutPassword,layoutGender,layoutDoctor;
+    TextInputLayout layoutUserName,layoutEmail,layoutPassword,layoutGender;
     MaterialButton confirmButton,datePickerButton;
     String Gender = "",ShowDate="",Birthdate = "";
 
