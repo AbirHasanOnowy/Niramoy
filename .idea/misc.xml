@@ -30,6 +30,7 @@
         <entry key="..\:/New/Niramoy/app/src/main/res/drawable/ic_launcher_background.xml" value="0.13" />
         <entry key="..\:/New/Niramoy/app/src/main/res/layout/activity_create_account.xml" value="0.25" />
         <entry key="..\:/New/Niramoy/app/src/main/res/layout/activity_director_data_input.xml" value="0.5" />
+        <entry key="..\:/New/Niramoy/app/src/main/res/layout/activity_director_show_details.xml" value="0.25" />
         <entry key="..\:/New/Niramoy/app/src/main/res/layout/activity_doctor_data_input.xml" value="0.25" />
         <entry key="..\:/New/Niramoy/app/src/main/res/layout/activity_enter_patient.xml" value="0.22447916666666667" />
         <entry key="..\:/New/Niramoy/app/src/main/res/layout/activity_enter_test_report.xml" value="0.33" />
@@ -42,6 +43,7 @@
         <entry key="..\:/New/Niramoy/app/src/main/res/layout/activity_splash_screen.xml" value="0.25" />
         <entry key="..\:/New/Niramoy/app/src/main/res/layout/activity_user_profile.xml" value="0.22447916666666667" />
         <entry key="..\:/New/Niramoy/app/src/main/res/layout/circular.xml" value="0.2234375" />
+        <entry key="..\:/New/Niramoy/app/src/main/res/layout/director_recyclerview_item.xml" value="0.22447916666666667" />
         <entry key="..\:/New/Niramoy/app/src/main/res/layout/doctor_list.xml" value="0.2234375" />
         <entry key="..\:/New/Niramoy/app/src/main/res/layout/gender_list.xml" value="0.2234375" />
         <entry key="..\:/New/Niramoy/app/src/main/res/layout/test_list.xml" value="0.2234375" />
