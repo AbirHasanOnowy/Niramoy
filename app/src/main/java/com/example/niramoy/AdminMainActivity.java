@@ -16,6 +16,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -51,6 +52,7 @@ public class AdminMainActivity extends AppCompatActivity {
     AdminAdapter adminAdapter;
     private LinearLayoutManager linearLayoutManager;
     DirectorAdminClass directorAdminClass;
+    LinearLayout layoutProfile;
 
     ImageView imageMenu;
     String uid,position,name,hid,email,dept,education,gender,birthday,password;
@@ -228,6 +230,27 @@ public class AdminMainActivity extends AppCompatActivity {
                 navPositionTextView = findViewById(R.id.navPosition);
                 navNameTextView.setText(name);
                 navPositionTextView.setText(position);
+
+                layoutProfile = findViewById(R.id.drawarHeader);
+                layoutProfile.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        education = "Enough to become Admin";
+                        dept = "Authority";
+                        Intent profile = new Intent(AdminMainActivity.this,UserProfileActivity.class);
+                        profile.putExtra("HID",hid);
+                        profile.putExtra("Position",position);
+                        profile.putExtra("Name",name);
+                        profile.putExtra("Email",email);
+                        profile.putExtra("Dept",dept);
+                        profile.putExtra("Pass",password);
+                        profile.putExtra("Edu",education);
+                        profile.putExtra("Gender",gender);
+                        profile.putExtra("Birthday",birthday);
+                        startActivity(profile);
+
+                    }
+                });
             }
         });
     }
