@@ -62,6 +62,7 @@
                     android:layout_marginTop="24dp"
                     android:layout_marginEnd="24dp"
                     android:hint="Search Patient"
+                    app:counterEnabled="true"
                     android:textColorHint="@color/black"
                     app:boxStrokeColor="@color/colorPrimary"
                     app:endIconCheckable="true"
@@ -79,10 +80,11 @@
                     app:layout_constraintTop_toBottomOf="@+id/signInTextView">
 
                     <EditText
-                        android:id="@+id/signInEmailInput"
+                        android:id="@+id/patientSearchById"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:inputType="text"
+                        android:inputType="number"
+                        android:maxLength="9"
                         android:textColor="@color/black" />
 
                 </com.google.android.material.textfield.TextInputLayout>
@@ -195,13 +197,13 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Age: "
+                        android:text="Birthdate: "
                         android:textColor="@color/black"
                         android:textSize="18sp"
                         android:textStyle="bold" />
 
                     <TextView
-                        android:id="@+id/patientAgeTV"
+                        android:id="@+id/patientBirthdateTV"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="24"

@@ -15,6 +15,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -51,6 +52,7 @@ public class DirectorMainActivity extends AppCompatActivity {
     DirectorRvAdapter adminAdapter;
     private LinearLayoutManager linearLayoutManager;
     DirectorMainClass directorMainClass;
+    LinearLayout layoutProfile;
 
     private FirebaseAuth fAuth;
     private FirebaseFirestore fStore;
@@ -218,7 +220,9 @@ public class DirectorMainActivity extends AppCompatActivity {
                 switch (item.getItemId()) {
                     case R.id.logOutButton:
                         Toast.makeText(DirectorMainActivity.this,"Log out", Toast.LENGTH_SHORT).show();
+                        fAuth.signOut();
                         drawerLayout.closeDrawers();
+                        startActivity(new Intent(DirectorMainActivity.this,SignInActivity.class));
                         break;
 
                     case R.id.policyButton:
@@ -242,6 +246,25 @@ public class DirectorMainActivity extends AppCompatActivity {
                 navPositionTextView = findViewById(R.id.navPosition);
                 navNameTextView.setText(name);
                 navPositionTextView.setText(position);
+
+                layoutProfile = findViewById(R.id.drawarHeader);
+                layoutProfile.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent profile = new Intent(DirectorMainActivity.this,UserProfileActivity.class);
+                        profile.putExtra("HID",hid);
+                        profile.putExtra("Position",position);
+                        profile.putExtra("Name",name);
+                        profile.putExtra("Email",email);
+                        profile.putExtra("Dept",dept);
+                        profile.putExtra("Pass",password);
+                        profile.putExtra("Edu",education);
+                        profile.putExtra("Gender",gender);
+                        profile.putExtra("Birthday",birthday);
+                        startActivity(profile);
+
+                    }
+                });
             }
         });
     }
