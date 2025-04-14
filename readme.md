@@ -26,10 +26,7 @@
 
 ### General(Login/Signup)
 
-![alt text](<Login page.jpg>)
-![alt text](<Create id basic.jpg>)
-![alt text](<Create id details.jpg>)
-![alt text](<Create id data entry.jpg>)
+![alt text](<Login page.jpg>)![alt text](<Create id basic.jpg>)![alt text](<Create id details.jpg>)![alt text](<Create id data entry.jpg>)
 
 ### Admin
 
