@@ -30,9 +30,9 @@
 
 ### Admin
 
-![alt text](<Admin profile.jpg>)
-![alt text](<Admin director list.jpg>)
-![alt text](<Profile details.jpg>)
+<img src="Admin profile.jpg" width="180" height="400">
+<img src="Admin director list.jpg" width="180" height="400">
+<img src="Profile details.jpg" width="180" height="400">
 
 ### Director
 
