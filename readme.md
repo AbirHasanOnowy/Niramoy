@@ -1,12 +1,12 @@
 # Niramoy – Android Mobile Application
+
 ‘Niramoy’ is a platform which stores patient data and we can update those data if we want.
 
-
 ## Objectives
-* Receiptionists can insert and update some data of patient excluding medical tests.
-* Doctors can insert and update medical test data and other data.
-* We can search data by patient image or patient id.
 
+- Receiptionists can insert and update some data of patient excluding medical tests.
+- Doctors can insert and update medical test data and other data.
+- We can search data by patient image or patient id.
 
 ## Features
 
@@ -22,20 +22,69 @@
 
 **6. To delete records:** We can delete the stored records if needed.
 
+## Screenshots
+
+### General(Login/Signup)
+
+![alt text](<Login page.jpg>)
+![alt text](<Create id basic.jpg>)
+![alt text](<Create id details.jpg>)
+![alt text](<Create id data entry.jpg>)
+
+### Admin
+
+![alt text](<Admin profile.jpg>)
+![alt text](<Admin director list.jpg>)
+![alt text](<Profile details.jpg>)
+
+### Director
+
+![alt text](<Director profile.jpg>)
+![alt text](<Director pending list.jpg>)
+![alt text](<Assigned employees.jpg>)
+![alt text](<Pending Employee.jpg>)
+![alt text](<Doctor details.jpg>)
+
+### Doctor
+
+![alt text](<Doctor profile.jpg>)
+![alt text](<Doctor find patient.jpg>)
+![alt text](<Search patient.jpg>)
+![alt text](<Doctor write prescription.jpg>)
+![alt text](<Doctor write test report.jpg>)
+![alt text](<Patient prescription info.jpg>)
+![alt text](<Patient test info.jpg>)
+
+### Receptionist
+
+![alt text](<Receptionist profile.jpg>)
+![alt text](<Receptionist search patient.jpg>)
+![alt text](<Patient data entry.jpg>)
+![alt text](<Patient prescription info.jpg>)
+![alt text](<Patient test info.jpg>)
+
+### Nurse
+
+![alt text](<Nurse profile.jpg>)
+![alt text](<Patient prescription info.jpg>)
+![alt text](<Patient test info.jpg>)
 
 ## Mock Designs
-<img src="https://user-images.githubusercontent.com/70595051/192147378-bfe0f615-7587-4fbf-a6bf-c1a2df5c69d9.png" width="180" height="400">  <img src="https://user-images.githubusercontent.com/70595051/192147382-86f0bcf5-b479-4e4e-b2dc-4cc810de56d5.png" width="180" height="400">  <img src="https://user-images.githubusercontent.com/70595051/192147388-ef9844f7-0120-4d94-b7b4-34c6ad591093.png" width="180" height="400">  <img src="https://user-images.githubusercontent.com/70595051/192147391-9e4a5138-a592-41a3-b4ef-65cc0c5cf0e2.png" width="180" height="400">  <img src="https://user-images.githubusercontent.com/70595051/192147408-bd8d67d4-4f7e-4c3f-a649-43f9337cbaa9.png" width="180" height="400">  <img src="https://user-images.githubusercontent.com/70595051/192147411-7181fe72-bf89-4013-b5c8-57b5c7e0e81a.png" width="180" height="400">
 
+<img src="https://user-images.githubusercontent.com/70595051/192147378-bfe0f615-7587-4fbf-a6bf-c1a2df5c69d9.png" width="180" height="400"> <img src="https://user-images.githubusercontent.com/70595051/192147382-86f0bcf5-b479-4e4e-b2dc-4cc810de56d5.png" width="180" height="400"> <img src="https://user-images.githubusercontent.com/70595051/192147388-ef9844f7-0120-4d94-b7b4-34c6ad591093.png" width="180" height="400"> <img src="https://user-images.githubusercontent.com/70595051/192147391-9e4a5138-a592-41a3-b4ef-65cc0c5cf0e2.png" width="180" height="400"> <img src="https://user-images.githubusercontent.com/70595051/192147408-bd8d67d4-4f7e-4c3f-a649-43f9337cbaa9.png" width="180" height="400"> <img src="https://user-images.githubusercontent.com/70595051/192147411-7181fe72-bf89-4013-b5c8-57b5c7e0e81a.png" width="180" height="400">
 
 ## Entity Relationship Diagram
+
 ![ER Diagram of Niramoy](https://user-images.githubusercontent.com/70595051/192147159-77dd361e-c706-4d6c-a34b-bbc1159b70c9.png)
 
 ## Flowchart
+
 ![Project flowchart](https://user-images.githubusercontent.com/102896787/207408565-c093bd8c-ca16-44d4-a74a-da668601db8d.jpg)
 
-
 ## Schema Diagram
+
 ![Final View (1)](https://user-images.githubusercontent.com/102896787/207495186-dcc09c7d-dd25-4683-a2df-67b4fda7442c.jpg)
 
 ## Workflow
+
 ![Workflow of Niramoy](https://user-images.githubusercontent.com/70595051/192147231-c7737f62-faaa-4275-b4df-d710e5776917.png)

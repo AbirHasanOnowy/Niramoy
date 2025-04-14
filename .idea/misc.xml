@@ -28,6 +28,7 @@
         <entry key="..\:/New/Niramoy/app/src/main/res/drawable/ic_baseline_login_24.xml" value="0.111" />
         <entry key="..\:/New/Niramoy/app/src/main/res/drawable/ic_baseline_person_18.xml" value="0.126" />
         <entry key="..\:/New/Niramoy/app/src/main/res/drawable/ic_launcher_background.xml" value="0.13" />
+        <entry key="..\:/New/Niramoy/app/src/main/res/layout/activity_admin_main.xml" value="0.22447916666666667" />
         <entry key="..\:/New/Niramoy/app/src/main/res/layout/activity_create_account.xml" value="0.25" />
         <entry key="..\:/New/Niramoy/app/src/main/res/layout/activity_director_data_input.xml" value="0.5" />
         <entry key="..\:/New/Niramoy/app/src/main/res/layout/activity_director_show_details.xml" value="0.25" />
@@ -37,10 +38,13 @@
         <entry key="..\:/New/Niramoy/app/src/main/res/layout/activity_hospital_id_input.xml" value="0.25" />
         <entry key="..\:/New/Niramoy/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/New/Niramoy/app/src/main/res/layout/activity_nurse_data_input.xml" value="0.1" />
+        <entry key="..\:/New/Niramoy/app/src/main/res/layout/activity_nurse_main.xml" value="0.22447916666666667" />
         <entry key="..\:/New/Niramoy/app/src/main/res/layout/activity_patient_profile.xml" value="0.22447916666666667" />
         <entry key="..\:/New/Niramoy/app/src/main/res/layout/activity_receptionist_data_input.xml" value="0.33" />
         <entry key="..\:/New/Niramoy/app/src/main/res/layout/activity_show_tests.xml" value="0.20885416666666667" />
         <entry key="..\:/New/Niramoy/app/src/main/res/layout/activity_sign_in.xml" value="0.2" />
+        <entry key="..\:/New/Niramoy/app/src/main/res/layout/activity_signup_director.xml" value="0.22447916666666667" />
+        <entry key="..\:/New/Niramoy/app/src/main/res/layout/activity_signup_nurse.xml" value="0.22447916666666667" />
         <entry key="..\:/New/Niramoy/app/src/main/res/layout/activity_splash_screen.xml" value="0.25" />
         <entry key="..\:/New/Niramoy/app/src/main/res/layout/activity_user_profile.xml" value="0.22447916666666667" />
         <entry key="..\:/New/Niramoy/app/src/main/res/layout/circular.xml" value="0.2234375" />
