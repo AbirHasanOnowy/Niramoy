@@ -26,21 +26,16 @@
 
 ### General(Login/Signup)
 
-![alt text](<Login page.jpg>)![alt text](<Create id basic.jpg>)![alt text](<Create id details.jpg>)![alt text](<Create id data entry.jpg>)
+<img src="Splash Screen.jpg" width="180" height="400"> <img src="Login page.jpg" width="180" height="400"> <img src="Create id basic.jpg" width="180" height="400"> <img src="Create id details.jpg" width="180" height="400"> <img src="Create id data entry.jpg" width="180" height="400">
 
 ### Admin
 
-<img src="Admin profile.jpg" width="180" height="400">
-<img src="Admin director list.jpg" width="180" height="400">
-<img src="Profile details.jpg" width="180" height="400">
+<img src="Admin profile.jpg" width="180" height="400"> <img src="Admin director list.jpg" width="180" height="400"> <img src="Profile details.jpg" width="180" height="400">
 
 ### Director
 
-![alt text](<Director profile.jpg>)
-![alt text](<Director pending list.jpg>)
-![alt text](<Assigned employees.jpg>)
-![alt text](<Pending Employee.jpg>)
-![alt text](<Doctor details.jpg>)
+<img src="Director profile.jpg" width="180" height="400"> <img src="Director pending list.jpg" width="180" height="400"> <img src="Assigned employees.jpg" width="180" height="400"> <img src="Pending Employee.jpg" width="180" height="400"> <img src="Doctor details.jpg" width="180" height="400">
+
 
 ### Doctor
 
