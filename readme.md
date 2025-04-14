@@ -26,7 +26,7 @@
 
 ### General(Login/Signup)
 
-<img src="Splash Screen.jpg" width="180" height="400"> <img src="Login page.jpg" width="180" height="400"> <img src="Create id basic.jpg" width="180" height="400"> <img src="Create id details.jpg" width="180" height="400"> <img src="Create id data entry.jpg" width="180" height="400">
+<img src="Splash screen.jpg" width="180" height="400"> <img src="Login page.jpg" width="180" height="400"> <img src="Create id basic.jpg" width="180" height="400"> <img src="Create id details.jpg" width="180" height="400"> <img src="Create id data entry.jpg" width="180" height="400">
 
 ### Admin
 
@@ -39,27 +39,14 @@
 
 ### Doctor
 
-![alt text](<Doctor profile.jpg>)
-![alt text](<Doctor find patient.jpg>)
-![alt text](<Search patient.jpg>)
-![alt text](<Doctor write prescription.jpg>)
-![alt text](<Doctor write test report.jpg>)
-![alt text](<Patient prescription info.jpg>)
-![alt text](<Patient test info.jpg>)
+<img src="Doctor profile.jpg" width="180" height="400"> <img src="Doctor find patient.jpg" width="180" height="400"> <img src="Search patient.jpg" width="180" height="400"> <img src="Doctor write prescription.jpg" width="180" height="400"> <img src="Doctor write test report.jpg" width="180" height="400"> <img src="Patient prescription info.jpg" width="180" height="400"> <img src="Patient test info.jpg" width="180" height="400">
 
 ### Receptionist
 
-![alt text](<Receptionist profile.jpg>)
-![alt text](<Receptionist search patient.jpg>)
-![alt text](<Patient data entry.jpg>)
-![alt text](<Patient prescription info.jpg>)
-![alt text](<Patient test info.jpg>)
+<img src="Receptionist profile.jpg" width="180" height="400"> <img src="Receptionist search patient.jpg" width="180" height="400"> <img src="Patient data entry.jpg" width="180" height="400"> <img src="Patient prescription info.jpg" width="180" height="400"> <img src="Patient test info.jpg" width="180" height="400">
 
 ### Nurse
-
-![alt text](<Nurse profile.jpg>)
-![alt text](<Patient prescription info.jpg>)
-![alt text](<Patient test info.jpg>)
+<img src="Nurse profile.jpg" width="180" height="400"> <img src="Patient prescription info.jpg" width="180" height="400"> <img src="Patient test info.jpg" width="180" height="400">
 
 ## Mock Designs
 
